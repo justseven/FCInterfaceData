@@ -1,0 +1,103 @@
+﻿@model Web4BDC.Models.FileUploadQueryForm 
+<div style="width: 80%; margin:auto">
+    @using (Html.BeginForm())
+    {
+        <table width="100%" cellpadding="5">
+            <tr>
+                <td class="zctab">
+                    @Html.LabelFor(model => model.Slbh)：
+                    @Html.TextBoxFor(model => model.Slbh)
+                </td>
+                <td>
+                    @Html.LabelFor(model => model.FileName)：
+                    @Html.TextBoxFor(model => model.FileName)
+                </td>
+                <td class="zctab">
+                    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="GetData()">获取</a>
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    }
+    <table class="easyui-datagrid" title="" style=" height:400px" id="Attachlst">
+    </table>
+</div>
+@section script
+{
+    <script type="text/javascript">
+        $(function () { 
+            $('#Attachlst').datagrid({
+                columns: [[
+                    { field: 'CID', title: 'ID'},
+                    { field: 'SLBH', title: '受理编号' },
+                    { field: 'CNAME', title: '文件名' },
+                    { field: 'CREATEDATE', title: '创建时间' },
+                    { field: 'ID', title: '操作', formatter: pushDataFormatter }
+                ]],
+                singleSelect: true, collapsible: true, method: 'post', pagination: true, pageList: [20, 50, 100],//每页的个数 
+                url: '@Url.Action("GetAttachLst")', rownumbers: true,
+                onDblClickCell: function (index, field, value) { 
+                }
+            });
+        });
+
+
+        function pushDataFormatter(value, row, index) {
+            return "<a slbh='" + row.SLBH + "' CID='" + row.CID + "' class='SetTime' href='#' onclick='javascript:SetTime(this);'>修改时间</a>";
+        }
+
+        function SetTime(t) {
+            var th = $(t);
+            var slbh = th.attr("slbh");
+            var CID = th.attr("CID");
+            var da = {};
+            da.slbh = slbh;
+            da.CID = CID;
+            art.dialog({
+                content:  '<span>创建时间：</span><input type="text" id="NewCreateTime"/>',
+                ok: function () {
+                    var time = $('#NewCreateTime').val();
+                    if (!time)
+                    {
+                        alert("请输入创建时间，或者关闭！");
+                        return false;
+                    }
+                    da.CreateTime = $('#NewCreateTime').val()
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("SetCreateTime")',
+                        data: da,
+                        dataType: 'json',
+                        success: function (data) {
+                            if (data.Ret) {
+                                art.dialog({
+                                    content: "修改成功！"
+                                });
+                                this.close();
+                            } else {
+                                art.dialog({
+                                    content: "修改失败，【" + data.Message + "】"
+                                });
+                            }
+                        },
+                        error: function (XMLHttpRequest, textStatus, errorThrown) {
+                            art.dialog({
+                                content: "异常信息:[" + XMLHttpRequest.responseText + "]"
+                            });
+                        }
+                    })
+                },
+                cancelVal: '关闭',
+                cancel: true //为true等价于function(){}   
+            });
+        }
+        function GetData() { 
+            $('#Attachlst').datagrid('load', queryParam());
+        }
+
+        function queryParam()
+        {
+            return { Slbh: $('#Slbh').val(), FileName: $('#FileName').val() };
+        }
+    </script>
+}

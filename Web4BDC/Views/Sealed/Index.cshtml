@@ -1,0 +1,88 @@
+﻿@model Web4BDC.Models.SealedQueryForm
+
+<div style="width: 80%; margin:auto">
+    @using (Html.BeginForm())
+    {
+        <table width="100%" cellpadding="5">
+            <tr>
+                <td class="zctab">
+                    @Html.LabelFor(model => model.Address)：
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.Address)<span style="color:red">*</span>
+                </td>
+                <td></td>
+                <td class="zctab">
+                    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="GetData()">获取</a>
+                </td> 
+            </tr>
+            <tr>
+                <td class="zctab">
+                    @Html.LabelFor(model => model.Name)：
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.Name)
+                </td>
+                <td class="zctab">
+                    @Html.LabelFor(model => model.IDNumber)：
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.IDNumber)
+                </td>
+            </tr> 
+        </table>
+    }
+    <table class="easyui-datagrid" title="个人房屋信息" style=" height:250px" id="FC_H_Table"
+           data-options="singleSelect:true,collapsible:true,method:'post',data:[],rownumbers:true">
+        <thead>
+            <tr>
+                <th data-options="field:'HID',checkbox:true">取户信息</th>
+                <th data-options="field:'QLRXM'">权利人姓名</th>
+                <th data-options="field:'ZJHM'">证件号码</th>
+                <th data-options="field:'FWZL'">房屋坐落</th> 
+            </tr>
+        </thead>
+    </table>
+</div>
+
+@section script{
+        <script type="text/javascript">
+            function GetData() {
+                if (validation()) {
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("GetHouseInfo")',
+                        data: queryParam(),
+                        dataType: 'json',
+                        success: function (data) {
+                            if (data) {
+                                $('#FC_H_Table').datagrid('loadData', data);
+                            }
+                        },
+                        error: function (XMLHttpRequest, textStatus, errorThrown) {
+                            art.dialog({
+                                content: "获取数据异常，异常信息:[" + XMLHttpRequest.responseText + "]"
+                            });
+                        }
+                    });
+                }
+            }
+
+            //验证信息
+            function validation() {
+                if ($("#Address").val() == '' && $("#Name").val() == '' && $("#IDNumber").val() == '') {
+                    art.dialog({
+                        content: "请输入查询条件"
+                    });
+                    return false;
+                } return true;
+            }
+            function queryParam() {
+                var o = {};
+                o.Address = $('#Address').val();
+                o.Name = $('#Name').val();
+                o.IDNumber = $('#IDNumber').val();
+                return o;
+            }
+        </script>
+}

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc12="http://www.w3.org/2003/05/soap-encoding" xmlns:soapenc11="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope" xmlns:tns="http://webservice.tax.com" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap11="http://schemas.xmlsoap.org/soap/envelope/" targetNamespace="http://webservice.tax.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://webservice.tax.com">
+      <xsd:element name="getHouseQs">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="in0" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getHouseQsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="out" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="setDaXx">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="in0" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="setDaXxResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="out" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getDaSq">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="in0" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getDaSqResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="out" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getHouseQsResponse">
+    <wsdl:part name="parameters" element="tns:getHouseQsResponse" />
+  </wsdl:message>
+  <wsdl:message name="setDaXxResponse">
+    <wsdl:part name="parameters" element="tns:setDaXxResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDaSqRequest">
+    <wsdl:part name="parameters" element="tns:getDaSq" />
+  </wsdl:message>
+  <wsdl:message name="getDaSqResponse">
+    <wsdl:part name="parameters" element="tns:getDaSqResponse" />
+  </wsdl:message>
+  <wsdl:message name="getHouseQsRequest">
+    <wsdl:part name="parameters" element="tns:getHouseQs" />
+  </wsdl:message>
+  <wsdl:message name="setDaXxRequest">
+    <wsdl:part name="parameters" element="tns:setDaXx" />
+  </wsdl:message>
+  <wsdl:portType name="qsxxWebservicePortType">
+    <wsdl:operation name="getHouseQs">
+      <wsdl:input name="getHouseQsRequest" message="tns:getHouseQsRequest" />
+      <wsdl:output name="getHouseQsResponse" message="tns:getHouseQsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="setDaXx">
+      <wsdl:input name="setDaXxRequest" message="tns:setDaXxRequest" />
+      <wsdl:output name="setDaXxResponse" message="tns:setDaXxResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getDaSq">
+      <wsdl:input name="getDaSqRequest" message="tns:getDaSqRequest" />
+      <wsdl:output name="getDaSqResponse" message="tns:getDaSqResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="qsxxWebserviceHttpBinding" type="tns:qsxxWebservicePortType">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getHouseQs">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getHouseQsRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getHouseQsResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setDaXx">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="setDaXxRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="setDaXxResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDaSq">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getDaSqRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getDaSqResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="qsxxWebservice">
+    <wsdl:port name="qsxxWebserviceHttpPort" binding="tns:qsxxWebserviceHttpBinding">
+      <wsdlsoap:address location="http://192.168.1.89:8080/project/services/qsxxWebservice" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

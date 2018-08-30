@@ -1,0 +1,150 @@
+﻿<style type="text/css" media="print">
+@Page { size: landscape; }
+</style>
+<div class="easyui-layout" style="width:770px;height:650px;margin:auto">
+    <div id="DeedTaxInfowin" data-options="region:'north',title:'缴费查询',split:true" style="width:100%;height:100px">
+        受理编号：<input id="ywzh" type="text" style="width:250px" />
+        <input id="Search" class="easyui-linkbutton" type="button" value="查找" />
+        <input type="button" class="easyui-linkbutton" value="打印" id="printBtn" />
+        <input type="button" class="easyui-linkbutton" value="保存图片" id="SaveImgBtn" />
+        <input id="SLBH" value="@ViewData["SLBH"]" type="text" disabled />
+
+    </div>
+    <div id="DeedTaxInfowin" style="width:50%;height:400px" data-options="region:'center',title:'查询结果',split:true">
+        <div id="tt" class="easyui-tabs" style="width:700px;height:250px;">
+            <div title="契税信息" style="padding:20px;">
+                <div id="QS" class="printDiv" style="text-align:center;">
+                    <table id="QSInfo" class="CommonTable" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th colspan="9" style="text-align:center;font-size:30px;">徐州市不动产交易税收交款凭证</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td width="90">填发日期</td>
+                                <td id="QSTFRQ" colspan="4"></td>
+                                <td colspan="2">电子税票号码：</td>
+                                <td id="QSSPHM" colspan="2"></td>
+                            </tr>
+                            <tr>
+                                <td>纳税人识别号</td>
+                                <td id="QSNSRSBH" colspan="3"></td>
+                                <td width="70">纳税人名称</td>
+                                <td id="QSNSRMC" colspan="4"></td>
+                            </tr>
+                            <tr>
+                                <td width="90">土地、房屋地址</td>
+                                <td id="QSDZ" colspan="4"></td>
+                                <td width="65px">成交面积</td>
+                                <td id="QSCJMJ" width="65px"></td>
+                                <td width="75px">权属转移用途</td>
+                                <td id="QSQSZYYT" width="65px"></td>
+                            </tr>
+                            <tr>
+                                <td>税种</td>
+                                <td colspan="2">品目名称</td>
+                                <td>计税金额</td>
+                                <td>税率</td>
+                                <td colspan="2">合同日期</td>
+                                <td>减免税额</td>
+                                <td>实缴金额</td>
+                            </tr>
+                            <tr style="height:25px" class="QSTM">
+                                <td></td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr style="height:25px" class="QSTM">
+                                <td></td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr style="height:25px" class="QSTM">
+                                <td></td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr style="height:25px" class="QSTM">
+                                <td></td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr style="height:25px" class="QSTM">
+                                <td></td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>合计金额</td>
+
+                                <td colspan="8">（大写）<span id="QSHJJE"></span></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" width="180">税务机关</td>
+                                <td colspan="2" width="180">填票人</td>
+                                <td colspan="5">备注</td>
+                            </tr>
+                            <tr style="height:155px">
+                                <td colspan="2"><img src="~/Content/images/套章.png" width="150" height="140" style="position:absolute;top:200px"></td>
+                                <td colspan="2" id="QSTPR"></td>
+                                <td colspan="5" align="center"><span id="barcode"></span></td>
+                            </tr>
+                            <tr><td colspan="9">注：改房产的缴纳电子信息已通过系统传递至不动产发证环节进行前置校验，办证时请主动出示本税收凭证，领证后由本人妥善保存。</td></tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </div>
+        </div>
+    @section style{
+        <link href="~/Content/PrintTable.css" rel="stylesheet" type="text/css" />
+    }
+    @section script{
+        <script type="text/javascript" src="~/Scripts/jquery.jqprint-0.3.js"></script>
+        <script type="text/javascript" src="~/Scripts/bluebird.js"></script>
+        <script type="text/javascript" src="~/Scripts/html2canvas.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            var slbh = $("#SLBH").val();
+            if (slbh) {
+                GetDataBySLBH(slbh);
+            }
+            $("#Search").click(function () {
+                var txm = $("#ywzh").val();
+                if (!txm || txm.length == 0) {
+                    alert("请输入受理编号");
+                    return;
+                }
+                GetDataBySLBH(txm);
+            });
+            $("#printBtn").click(function () {
+                print();
+            });
+            
+            ShowBarCode();
+    });
+        </script>
+    }

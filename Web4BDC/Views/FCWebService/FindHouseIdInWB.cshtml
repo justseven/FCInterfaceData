@@ -1,0 +1,117 @@
+﻿<div style="margin:auto">
+    @using (Html.BeginForm())
+    {
+        <table width="100%" cellpadding="5">
+            <tr>
+                <td class="zctab">
+                    @Html.Hidden("Hids", ViewData["Hids"])
+                    @Html.Hidden("SLBH", ViewData["SLBH"])
+                </td>
+
+            </tr>
+        </table>
+    }
+    <table id="HouseInfo"></table>
+    <div id="WBInfowin" class="easyui-window" title="网备信息查询" style="width:600px;height:400px"
+         data-options="modal:true,closed:true">
+        <input id="WBZL" type="text" style="width:250px"/><input id="WbSearch" type="button" value="查找"/>
+        <table id="WBInfo"></table>
+    </div>
+</div>
+@section script
+{
+   <script type="text/javascript">
+       $(function () {
+           $('#HouseInfo').datagrid({
+               columns: [[
+                   { field: 'TSTYBM', hidden: true },
+                   { field: 'LSZTYBM', hidden: true },
+                   { field: 'ZL', title: '坐落', width: 250 },
+                   { field: 'FJH', title: '房间号', width: 100 },
+                   { field: 'JZMJ', title: '建筑面积', width: 100 },
+                   { field: 'Oracle_WB_HouseId', title: '寻找网备ID', formatter: DataFormatter }
+               ]],
+               singleSelect: true, collapsible: true, method: 'post', pagination: true,
+               url: '@Url.Action("GetHouseInfoByIds")' ,
+               queryParams: { tstybms: $("#Hids").val() }
+               , rownumbers: true,
+               loadFilter: function (data) {
+                   if (data && data.length > 0) {
+                       return { rows: data, total: data.length };
+                   } else {
+                       return { rows: [], total:0}
+                   }
+               }
+           });
+           $("#WbSearch").click(function () {
+               GetWebInfoByZL($("#WBZL").val());
+           });
+       });
+
+       function DataFormatter(value, row, index) {
+           if (value) {
+               return "<a Oracle_WB_HouseId='" + row.Oracle_WB_HouseId + " ' href='#' onclick='javascript:GetWebInfo(this);'>" + row.Oracle_WB_HouseId+"</a>";
+           } else {
+               return "<a href='#' ZL='" + row.ZL +"' onclick='javascript:GetWebInfo(this);'>查询网备</a>";
+           }
+       }
+
+       function GetWebInfo(t) {
+           var dt = $(t);
+           if (dt.attr("Oracle_WB_HouseId")) {
+
+           } else {
+               var zl = dt.attr("ZL");
+               $("#WBZL").val(zl);
+               GetWebInfoByZL(zl);
+               $("#WBInfowin").window("open");
+               $("#WBInfowin").window("center");
+           }
+       }
+
+       function GetWebInfoByZL(zl) {
+           $("#WBInfo").datagrid({
+                   columns: [[
+                       { field: 'TSTYBM', hidden: true },
+                       { field: 'ZL', title: '坐落', width: 250 },
+                       { field: 'JZMJ', title: '建筑面积', width: 60 }
+                   ]],
+                   url: '@Url.Action("SearchWB")',
+                   queryParams: { zl: zl},
+                   singleSelect: true,
+                   onDblClickRow: function (rowIndex, rowData) {
+                       var setRow = $('#HouseInfo').datagrid('getSelected');
+                       if (setRow) {
+                           if (Math.abs(setRow.JZMJ - rowData.JZMJ) > 1) {
+                               if (("您选择网备的房屋面积和需要设置的户的建筑面积相差太大,是否仍要设置")) {
+                                   SetWB_HouseId(setRow.TSTYBM, rowData.TSTYBM);
+                               }
+                           }
+                           SetWB_HouseId(setRow.TSTYBM, rowData.TSTYBM);
+                       }
+                   }, loadFilter: function (data) {
+                       if (data && data.length > 0) {
+                           return { rows: data, total: data.length };
+                       } else {
+                           return { rows: [], total: 0 }
+                       }
+                   }
+               });
+       }
+       function SetWB_HouseId(tstybm,houseid) {
+           $.ajax({
+               url: '@Url.Action("SetOracle_WB")' + '/?tstybm=' + tstybm + '&houseid=' + houseid,
+               type: 'POST', 
+               success: function (data) {
+                   if (data.IsSuccess) {
+                       //alert("设置成功");
+                       $("#WBInfowin").window("close");
+                       $('#HouseInfo').datagrid('reload', { tstybms: $("#Hids").val() });
+                   } else {
+                       alert("设置失败：" + data.Message);
+                   }
+               }
+           });
+       }
+   </script>
+}

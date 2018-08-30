@@ -1,0 +1,19 @@
+﻿.CommonTable {
+    font-size: 12px;
+    border-collapse: collapse;
+    width: 670px;
+    margin: auto;
+}
+
+    .CommonTable td {
+        _border: 1px solid #808080
+    }
+
+    .CommonTable tr th, .CommonTable tr td {
+        border: 1px solid #808080;
+    }
+
+.printDiv {
+    position: absolute;
+    a
+}

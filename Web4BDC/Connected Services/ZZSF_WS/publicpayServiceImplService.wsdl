@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://server.zs.com/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="publicpayServiceImplService" targetNamespace="http://server.zs.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://server.zs.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="GetPayInfo" type="tns:GetPayInfo" />
+      <xs:element name="GetPayInfoResponse" type="tns:GetPayInfoResponse" />
+      <xs:complexType name="GetPayInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" form="qualified" name="slbh" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetPayInfoResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="GetPayInfoResponse">
+    <wsdl:part name="parameters" element="tns:GetPayInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPayInfo">
+    <wsdl:part name="parameters" element="tns:GetPayInfo" />
+  </wsdl:message>
+  <wsdl:portType name="publicpayService">
+    <wsdl:operation name="GetPayInfo">
+      <wsdl:input name="GetPayInfo" message="tns:GetPayInfo" />
+      <wsdl:output name="GetPayInfoResponse" message="tns:GetPayInfoResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="publicpayServiceImplServiceSoapBinding" type="tns:publicpayService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPayInfo">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="GetPayInfo">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetPayInfoResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="publicpayServiceImplService">
+    <wsdl:port name="publicpayServiceImplPort" binding="tns:publicpayServiceImplServiceSoapBinding">
+      <soap:address location="http://10.100.100.104:12366/xzbdc/publicpayService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

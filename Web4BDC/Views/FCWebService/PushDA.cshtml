@@ -1,0 +1,110 @@
+﻿
+@model Web4BDC.Models.PageParams
+
+<div style="width: 80%; margin:auto">
+    @using (Html.BeginForm())
+    {
+        <table width="100%" cellpadding="5">
+            <tr>
+                <td class="zctab">
+                    推送房产档案：
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.PrjId)<span style="color:red">*</span>
+                </td>
+                <td class="zctab">
+                    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="GetData()">推送房产档案</a>
+                </td>
+                <td class="zctab">
+                    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="PushARCH()">更新不动产归档</a>
+                </td>
+                <td class="zctab">
+                    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="RePushFail()">失败重推</a>
+                </td>
+                <td></td>
+            </tr>
+
+           
+        </table>
+    }
+    </div>
+<script type="text/javascript">
+
+    function GetData() {
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("PushDA")',
+                    data: queryParam(),
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data.IsSuccess) {
+                            art.dialog({
+                                content: "推送成功"
+                            });
+
+                        }
+                        else {
+                            art.dialog({
+                                content: data.Message
+                            });
+
+                        }
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        art.dialog({
+                            content: "获取数据异常，异常信息:[" + XMLHttpRequest.responseText + "]"
+                        });
+                    }
+                });
+
+    }
+
+    function PushARCH() {
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("PushARCH")',
+                    data: queryParam(),
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data) {
+                            art.dialog({
+                                content: "推送成功"
+                            });
+                        }
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        art.dialog({
+                            content: "获取数据异常，异常信息:[" + XMLHttpRequest.responseText + "]"
+                        });
+                    }
+                });
+
+    }
+
+    function RePushFail() {
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("RePushFail")',
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data) {
+                            art.dialog({
+                                content: "推送成功"
+                            });
+                        }
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        art.dialog({
+                            content: "获取数据异常，异常信息:[" + XMLHttpRequest.responseText + "]"
+                        });
+                    }
+                });
+
+    }
+
+        function queryParam() {
+            var o = {};
+            o.PrjId = $('#PrjId').val();
+            return o;
+        }
+    </script>

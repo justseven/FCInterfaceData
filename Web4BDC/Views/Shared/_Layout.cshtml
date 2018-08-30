@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css","~/css/easyuilayout") 
+    <link href="@Url.Content("~/Js/artDialog/skins/blue.css")" rel="stylesheet" type="text/css" />
+    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("style", false)
+</head>
+<body>
+    @RenderBody()
+
+    @Scripts.Render("~/bundles/jquery", "~/bundles/easyui", "~/bundles/artDialog") 
+    <script type="text/javascript" src="@Url.Content("~/Js/easyui/locale/easyui-lang-zh-CN.js")"></script>
+    <script type="text/javascript">
+        var fields = '@ViewData["fields"]';
+        var menuid = '@ViewData["menuid"]';
+    </script>
+
+    @RenderSection("script", false)
+</body>
+</html>

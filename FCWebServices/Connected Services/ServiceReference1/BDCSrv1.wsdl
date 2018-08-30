@@ -1,0 +1,897 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified">
+      <s:import namespace="http://www.w3.org/2001/XMLSchema" />
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FC_H">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sParams" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FC_HResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FC_HResult" type="BDC" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BDC">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="head" type="Head" />
+          <s:element minOccurs="0" maxOccurs="1" name="data">
+            <s:complexType>
+              <s:sequence>
+                <s:element ref="s:schema" />
+                <s:any />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="attach">
+            <s:complexType>
+              <s:sequence>
+                <s:element ref="s:schema" />
+                <s:any />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Head">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="flag" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="FC_Z">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sParams" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FC_ZResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FC_ZResult" type="BDC" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CLF_FC_CLMMHT">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sParams" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CLF_FC_CLMMHTResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CLF_FC_CLMMHTResult" type="BDC" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FC_GFQLRXX">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sParams" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FC_GFQLRXXResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FC_GFQLRXXResult" type="BDC" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FC_SPFYGHT">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sParams" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FC_SPFYGHTResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FC_SPFYGHTResult" type="BDC" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SPF_FC_CLMMHT">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sParams" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SPF_FC_CLMMHTResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SPF_FC_CLMMHTResult" type="BDC" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSealStateForSPF">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dsHouses">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Area" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSealStateForSPFResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateSealStateForSPFResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMortgageStateForSPF">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dsHouses">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Area" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMortgageStateForSPFResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateMortgageStateForSPFResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateYGDJStateForSPF">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dsHouses">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Area" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateYGDJStateForSPFResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateYGDJStateForSPFResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCSDJStateForSPF">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dsHouses">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Area" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCSDJStateForSPFResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateCSDJStateForSPFResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SPF_WFZMCX">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="qlrxm" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="zjhm" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="zl" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SPF_WFZMCXResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SPF_WFZMCXResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SPF_FC_FWQK">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sParams" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SPF_FC_FWQKResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SPF_FC_FWQKResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSealStateForCG">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dsHouses">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Area" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSealStateForCGResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateSealStateForCGResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMortgageStateForCG">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dsHouses">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Area" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMortgageStateForCGResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateMortgageStateForCGResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateYGDJStateForCG">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dsHouses">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Area" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateYGDJStateForCGResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateYGDJStateForCGResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCSDJStateForCG">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dsHouses">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Area" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCSDJStateForCGResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateCSDJStateForCGResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="FC_HSoapIn">
+    <wsdl:part name="parameters" element="FC_H" />
+  </wsdl:message>
+  <wsdl:message name="FC_HSoapOut">
+    <wsdl:part name="parameters" element="FC_HResponse" />
+  </wsdl:message>
+  <wsdl:message name="FC_ZSoapIn">
+    <wsdl:part name="parameters" element="FC_Z" />
+  </wsdl:message>
+  <wsdl:message name="FC_ZSoapOut">
+    <wsdl:part name="parameters" element="FC_ZResponse" />
+  </wsdl:message>
+  <wsdl:message name="CLF_FC_CLMMHTSoapIn">
+    <wsdl:part name="parameters" element="CLF_FC_CLMMHT" />
+  </wsdl:message>
+  <wsdl:message name="CLF_FC_CLMMHTSoapOut">
+    <wsdl:part name="parameters" element="CLF_FC_CLMMHTResponse" />
+  </wsdl:message>
+  <wsdl:message name="FC_GFQLRXXSoapIn">
+    <wsdl:part name="parameters" element="FC_GFQLRXX" />
+  </wsdl:message>
+  <wsdl:message name="FC_GFQLRXXSoapOut">
+    <wsdl:part name="parameters" element="FC_GFQLRXXResponse" />
+  </wsdl:message>
+  <wsdl:message name="FC_SPFYGHTSoapIn">
+    <wsdl:part name="parameters" element="FC_SPFYGHT" />
+  </wsdl:message>
+  <wsdl:message name="FC_SPFYGHTSoapOut">
+    <wsdl:part name="parameters" element="FC_SPFYGHTResponse" />
+  </wsdl:message>
+  <wsdl:message name="SPF_FC_CLMMHTSoapIn">
+    <wsdl:part name="parameters" element="SPF_FC_CLMMHT" />
+  </wsdl:message>
+  <wsdl:message name="SPF_FC_CLMMHTSoapOut">
+    <wsdl:part name="parameters" element="SPF_FC_CLMMHTResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSealStateForSPFSoapIn">
+    <wsdl:part name="parameters" element="UpdateSealStateForSPF" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSealStateForSPFSoapOut">
+    <wsdl:part name="parameters" element="UpdateSealStateForSPFResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMortgageStateForSPFSoapIn">
+    <wsdl:part name="parameters" element="UpdateMortgageStateForSPF" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMortgageStateForSPFSoapOut">
+    <wsdl:part name="parameters" element="UpdateMortgageStateForSPFResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateYGDJStateForSPFSoapIn">
+    <wsdl:part name="parameters" element="UpdateYGDJStateForSPF" />
+  </wsdl:message>
+  <wsdl:message name="UpdateYGDJStateForSPFSoapOut">
+    <wsdl:part name="parameters" element="UpdateYGDJStateForSPFResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCSDJStateForSPFSoapIn">
+    <wsdl:part name="parameters" element="UpdateCSDJStateForSPF" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCSDJStateForSPFSoapOut">
+    <wsdl:part name="parameters" element="UpdateCSDJStateForSPFResponse" />
+  </wsdl:message>
+  <wsdl:message name="SPF_WFZMCXSoapIn">
+    <wsdl:part name="parameters" element="SPF_WFZMCX" />
+  </wsdl:message>
+  <wsdl:message name="SPF_WFZMCXSoapOut">
+    <wsdl:part name="parameters" element="SPF_WFZMCXResponse" />
+  </wsdl:message>
+  <wsdl:message name="SPF_FC_FWQKSoapIn">
+    <wsdl:part name="parameters" element="SPF_FC_FWQK" />
+  </wsdl:message>
+  <wsdl:message name="SPF_FC_FWQKSoapOut">
+    <wsdl:part name="parameters" element="SPF_FC_FWQKResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSealStateForCGSoapIn">
+    <wsdl:part name="parameters" element="UpdateSealStateForCG" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSealStateForCGSoapOut">
+    <wsdl:part name="parameters" element="UpdateSealStateForCGResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMortgageStateForCGSoapIn">
+    <wsdl:part name="parameters" element="UpdateMortgageStateForCG" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMortgageStateForCGSoapOut">
+    <wsdl:part name="parameters" element="UpdateMortgageStateForCGResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateYGDJStateForCGSoapIn">
+    <wsdl:part name="parameters" element="UpdateYGDJStateForCG" />
+  </wsdl:message>
+  <wsdl:message name="UpdateYGDJStateForCGSoapOut">
+    <wsdl:part name="parameters" element="UpdateYGDJStateForCGResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCSDJStateForCGSoapIn">
+    <wsdl:part name="parameters" element="UpdateCSDJStateForCG" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCSDJStateForCGSoapOut">
+    <wsdl:part name="parameters" element="UpdateCSDJStateForCGResponse" />
+  </wsdl:message>
+  <wsdl:portType name="BDCSrvSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="HelloWorldSoapIn" />
+      <wsdl:output message="HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FC_H">
+      <wsdl:input message="FC_HSoapIn" />
+      <wsdl:output message="FC_HSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FC_Z">
+      <wsdl:input message="FC_ZSoapIn" />
+      <wsdl:output message="FC_ZSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CLF_FC_CLMMHT">
+      <wsdl:input message="CLF_FC_CLMMHTSoapIn" />
+      <wsdl:output message="CLF_FC_CLMMHTSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FC_GFQLRXX">
+      <wsdl:input message="FC_GFQLRXXSoapIn" />
+      <wsdl:output message="FC_GFQLRXXSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FC_SPFYGHT">
+      <wsdl:input message="FC_SPFYGHTSoapIn" />
+      <wsdl:output message="FC_SPFYGHTSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SPF_FC_CLMMHT">
+      <wsdl:input message="SPF_FC_CLMMHTSoapIn" />
+      <wsdl:output message="SPF_FC_CLMMHTSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSealStateForSPF">
+      <wsdl:input message="UpdateSealStateForSPFSoapIn" />
+      <wsdl:output message="UpdateSealStateForSPFSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMortgageStateForSPF">
+      <wsdl:input message="UpdateMortgageStateForSPFSoapIn" />
+      <wsdl:output message="UpdateMortgageStateForSPFSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateYGDJStateForSPF">
+      <wsdl:input message="UpdateYGDJStateForSPFSoapIn" />
+      <wsdl:output message="UpdateYGDJStateForSPFSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCSDJStateForSPF">
+      <wsdl:input message="UpdateCSDJStateForSPFSoapIn" />
+      <wsdl:output message="UpdateCSDJStateForSPFSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SPF_WFZMCX">
+      <wsdl:input message="SPF_WFZMCXSoapIn" />
+      <wsdl:output message="SPF_WFZMCXSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SPF_FC_FWQK">
+      <wsdl:input message="SPF_FC_FWQKSoapIn" />
+      <wsdl:output message="SPF_FC_FWQKSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSealStateForCG">
+      <wsdl:input message="UpdateSealStateForCGSoapIn" />
+      <wsdl:output message="UpdateSealStateForCGSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMortgageStateForCG">
+      <wsdl:input message="UpdateMortgageStateForCGSoapIn" />
+      <wsdl:output message="UpdateMortgageStateForCGSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateYGDJStateForCG">
+      <wsdl:input message="UpdateYGDJStateForCGSoapIn" />
+      <wsdl:output message="UpdateYGDJStateForCGSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCSDJStateForCG">
+      <wsdl:input message="UpdateCSDJStateForCGSoapIn" />
+      <wsdl:output message="UpdateCSDJStateForCGSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BDCSrvSoap" type="BDCSrvSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FC_H">
+      <soap:operation soapAction="/FC_H" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FC_Z">
+      <soap:operation soapAction="/FC_Z" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CLF_FC_CLMMHT">
+      <soap:operation soapAction="/CLF_FC_CLMMHT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FC_GFQLRXX">
+      <soap:operation soapAction="/FC_GFQLRXX" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FC_SPFYGHT">
+      <soap:operation soapAction="/FC_SPFYGHT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SPF_FC_CLMMHT">
+      <soap:operation soapAction="/SPF_FC_CLMMHT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSealStateForSPF">
+      <soap:operation soapAction="/UpdateSealStateForSPF" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMortgageStateForSPF">
+      <soap:operation soapAction="/UpdateMortgageStateForSPF" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateYGDJStateForSPF">
+      <soap:operation soapAction="/UpdateYGDJStateForSPF" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCSDJStateForSPF">
+      <soap:operation soapAction="/UpdateCSDJStateForSPF" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SPF_WFZMCX">
+      <soap:operation soapAction="/SPF_WFZMCX" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SPF_FC_FWQK">
+      <soap:operation soapAction="/SPF_FC_FWQK" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSealStateForCG">
+      <soap:operation soapAction="/UpdateSealStateForCG" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMortgageStateForCG">
+      <soap:operation soapAction="/UpdateMortgageStateForCG" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateYGDJStateForCG">
+      <soap:operation soapAction="/UpdateYGDJStateForCG" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCSDJStateForCG">
+      <soap:operation soapAction="/UpdateCSDJStateForCG" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BDCSrvSoap12" type="BDCSrvSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FC_H">
+      <soap12:operation soapAction="/FC_H" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FC_Z">
+      <soap12:operation soapAction="/FC_Z" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CLF_FC_CLMMHT">
+      <soap12:operation soapAction="/CLF_FC_CLMMHT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FC_GFQLRXX">
+      <soap12:operation soapAction="/FC_GFQLRXX" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FC_SPFYGHT">
+      <soap12:operation soapAction="/FC_SPFYGHT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SPF_FC_CLMMHT">
+      <soap12:operation soapAction="/SPF_FC_CLMMHT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSealStateForSPF">
+      <soap12:operation soapAction="/UpdateSealStateForSPF" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMortgageStateForSPF">
+      <soap12:operation soapAction="/UpdateMortgageStateForSPF" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateYGDJStateForSPF">
+      <soap12:operation soapAction="/UpdateYGDJStateForSPF" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCSDJStateForSPF">
+      <soap12:operation soapAction="/UpdateCSDJStateForSPF" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SPF_WFZMCX">
+      <soap12:operation soapAction="/SPF_WFZMCX" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SPF_FC_FWQK">
+      <soap12:operation soapAction="/SPF_FC_FWQK" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSealStateForCG">
+      <soap12:operation soapAction="/UpdateSealStateForCG" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMortgageStateForCG">
+      <soap12:operation soapAction="/UpdateMortgageStateForCG" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateYGDJStateForCG">
+      <soap12:operation soapAction="/UpdateYGDJStateForCG" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCSDJStateForCG">
+      <soap12:operation soapAction="/UpdateCSDJStateForCG" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BDCSrv">
+    <wsdl:port name="BDCSrvSoap" binding="BDCSrvSoap">
+      <soap:address location="http://192.168.100.80/BDCWSPUB_shiqu/BDCSrv.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BDCSrvSoap12" binding="BDCSrvSoap12">
+      <soap12:address location="http://192.168.100.80/BDCWSPUB_shiqu/BDCSrv.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

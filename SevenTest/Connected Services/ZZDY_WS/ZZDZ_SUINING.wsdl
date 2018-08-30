@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="LND_PROC_GETCERTQUERY">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LZRZJH" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LND_PROC_GETCERTQUERYResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LND_PROC_GETCERTQUERYResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LND_PROC_GETCERTINFO">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ywh" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="QLRZJH" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BDCQZH" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LND_PROC_GETCERTINFOResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LND_PROC_GETCERTINFOResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LND_PROC_UPDATECERTINFO">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="YWH" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="QLRZJH" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BDCQZH" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LZRXM" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LZRZJH" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="YSXLH" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="YSXLHP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="machineCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LND_PROC_UPDATECERTINFOResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LND_PROC_UPDATECERTINFOResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LND_PROC_UPDATECOST">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="YWH" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="QLRZJH" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BDCQZH" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="cost" type="s:float" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LND_PROC_UPDATECOSTResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LND_PROC_UPDATECOSTResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LND_PROC_UPDATECERTSTATE">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="YWH" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="QLRZJH" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BDCQZH" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="state" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="machineCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LND_PROC_UPDATECERTSTATEResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LND_PROC_UPDATECERTSTATEResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DataTable" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+            <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="int" type="s:int" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LND_PROC_GETCERTQUERYSoapIn">
+    <wsdl:part name="parameters" element="tns:LND_PROC_GETCERTQUERY" />
+  </wsdl:message>
+  <wsdl:message name="LND_PROC_GETCERTQUERYSoapOut">
+    <wsdl:part name="parameters" element="tns:LND_PROC_GETCERTQUERYResponse" />
+  </wsdl:message>
+  <wsdl:message name="LND_PROC_GETCERTINFOSoapIn">
+    <wsdl:part name="parameters" element="tns:LND_PROC_GETCERTINFO" />
+  </wsdl:message>
+  <wsdl:message name="LND_PROC_GETCERTINFOSoapOut">
+    <wsdl:part name="parameters" element="tns:LND_PROC_GETCERTINFOResponse" />
+  </wsdl:message>
+  <wsdl:message name="LND_PROC_UPDATECERTINFOSoapIn">
+    <wsdl:part name="parameters" element="tns:LND_PROC_UPDATECERTINFO" />
+  </wsdl:message>
+  <wsdl:message name="LND_PROC_UPDATECERTINFOSoapOut">
+    <wsdl:part name="parameters" element="tns:LND_PROC_UPDATECERTINFOResponse" />
+  </wsdl:message>
+  <wsdl:message name="LND_PROC_UPDATECOSTSoapIn">
+    <wsdl:part name="parameters" element="tns:LND_PROC_UPDATECOST" />
+  </wsdl:message>
+  <wsdl:message name="LND_PROC_UPDATECOSTSoapOut">
+    <wsdl:part name="parameters" element="tns:LND_PROC_UPDATECOSTResponse" />
+  </wsdl:message>
+  <wsdl:message name="LND_PROC_UPDATECERTSTATESoapIn">
+    <wsdl:part name="parameters" element="tns:LND_PROC_UPDATECERTSTATE" />
+  </wsdl:message>
+  <wsdl:message name="LND_PROC_UPDATECERTSTATESoapOut">
+    <wsdl:part name="parameters" element="tns:LND_PROC_UPDATECERTSTATEResponse" />
+  </wsdl:message>
+  <wsdl:message name="LND_PROC_GETCERTQUERYHttpGetIn">
+    <wsdl:part name="LZRZJH" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LND_PROC_GETCERTQUERYHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="LND_PROC_GETCERTINFOHttpGetIn">
+    <wsdl:part name="ywh" type="s:string" />
+    <wsdl:part name="QLRZJH" type="s:string" />
+    <wsdl:part name="BDCQZH" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LND_PROC_GETCERTINFOHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="LND_PROC_UPDATECERTINFOHttpGetIn">
+    <wsdl:part name="YWH" type="s:string" />
+    <wsdl:part name="QLRZJH" type="s:string" />
+    <wsdl:part name="BDCQZH" type="s:string" />
+    <wsdl:part name="LZRXM" type="s:string" />
+    <wsdl:part name="LZRZJH" type="s:string" />
+    <wsdl:part name="YSXLH" type="s:string" />
+    <wsdl:part name="YSXLHP" type="s:string" />
+    <wsdl:part name="machineCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LND_PROC_UPDATECERTINFOHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="LND_PROC_UPDATECOSTHttpGetIn">
+    <wsdl:part name="YWH" type="s:string" />
+    <wsdl:part name="QLRZJH" type="s:string" />
+    <wsdl:part name="BDCQZH" type="s:string" />
+    <wsdl:part name="cost" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LND_PROC_UPDATECOSTHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="LND_PROC_UPDATECERTSTATEHttpGetIn">
+    <wsdl:part name="YWH" type="s:string" />
+    <wsdl:part name="QLRZJH" type="s:string" />
+    <wsdl:part name="BDCQZH" type="s:string" />
+    <wsdl:part name="state" type="s:string" />
+    <wsdl:part name="machineCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LND_PROC_UPDATECERTSTATEHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="LND_PROC_GETCERTQUERYHttpPostIn">
+    <wsdl:part name="LZRZJH" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LND_PROC_GETCERTQUERYHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="LND_PROC_GETCERTINFOHttpPostIn">
+    <wsdl:part name="ywh" type="s:string" />
+    <wsdl:part name="QLRZJH" type="s:string" />
+    <wsdl:part name="BDCQZH" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LND_PROC_GETCERTINFOHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="LND_PROC_UPDATECERTINFOHttpPostIn">
+    <wsdl:part name="YWH" type="s:string" />
+    <wsdl:part name="QLRZJH" type="s:string" />
+    <wsdl:part name="BDCQZH" type="s:string" />
+    <wsdl:part name="LZRXM" type="s:string" />
+    <wsdl:part name="LZRZJH" type="s:string" />
+    <wsdl:part name="YSXLH" type="s:string" />
+    <wsdl:part name="YSXLHP" type="s:string" />
+    <wsdl:part name="machineCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LND_PROC_UPDATECERTINFOHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="LND_PROC_UPDATECOSTHttpPostIn">
+    <wsdl:part name="YWH" type="s:string" />
+    <wsdl:part name="QLRZJH" type="s:string" />
+    <wsdl:part name="BDCQZH" type="s:string" />
+    <wsdl:part name="cost" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LND_PROC_UPDATECOSTHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="LND_PROC_UPDATECERTSTATEHttpPostIn">
+    <wsdl:part name="YWH" type="s:string" />
+    <wsdl:part name="QLRZJH" type="s:string" />
+    <wsdl:part name="BDCQZH" type="s:string" />
+    <wsdl:part name="state" type="s:string" />
+    <wsdl:part name="machineCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LND_PROC_UPDATECERTSTATEHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:portType name="ZZDZ_SUININGSoap">
+    <wsdl:operation name="LND_PROC_GETCERTQUERY">
+      <wsdl:input message="tns:LND_PROC_GETCERTQUERYSoapIn" />
+      <wsdl:output message="tns:LND_PROC_GETCERTQUERYSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LND_PROC_GETCERTINFO">
+      <wsdl:input message="tns:LND_PROC_GETCERTINFOSoapIn" />
+      <wsdl:output message="tns:LND_PROC_GETCERTINFOSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LND_PROC_UPDATECERTINFO">
+      <wsdl:input message="tns:LND_PROC_UPDATECERTINFOSoapIn" />
+      <wsdl:output message="tns:LND_PROC_UPDATECERTINFOSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LND_PROC_UPDATECOST">
+      <wsdl:input message="tns:LND_PROC_UPDATECOSTSoapIn" />
+      <wsdl:output message="tns:LND_PROC_UPDATECOSTSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LND_PROC_UPDATECERTSTATE">
+      <wsdl:input message="tns:LND_PROC_UPDATECERTSTATESoapIn" />
+      <wsdl:output message="tns:LND_PROC_UPDATECERTSTATESoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ZZDZ_SUININGHttpGet">
+    <wsdl:operation name="LND_PROC_GETCERTQUERY">
+      <wsdl:input message="tns:LND_PROC_GETCERTQUERYHttpGetIn" />
+      <wsdl:output message="tns:LND_PROC_GETCERTQUERYHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LND_PROC_GETCERTINFO">
+      <wsdl:input message="tns:LND_PROC_GETCERTINFOHttpGetIn" />
+      <wsdl:output message="tns:LND_PROC_GETCERTINFOHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LND_PROC_UPDATECERTINFO">
+      <wsdl:input message="tns:LND_PROC_UPDATECERTINFOHttpGetIn" />
+      <wsdl:output message="tns:LND_PROC_UPDATECERTINFOHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LND_PROC_UPDATECOST">
+      <wsdl:input message="tns:LND_PROC_UPDATECOSTHttpGetIn" />
+      <wsdl:output message="tns:LND_PROC_UPDATECOSTHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LND_PROC_UPDATECERTSTATE">
+      <wsdl:input message="tns:LND_PROC_UPDATECERTSTATEHttpGetIn" />
+      <wsdl:output message="tns:LND_PROC_UPDATECERTSTATEHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ZZDZ_SUININGHttpPost">
+    <wsdl:operation name="LND_PROC_GETCERTQUERY">
+      <wsdl:input message="tns:LND_PROC_GETCERTQUERYHttpPostIn" />
+      <wsdl:output message="tns:LND_PROC_GETCERTQUERYHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LND_PROC_GETCERTINFO">
+      <wsdl:input message="tns:LND_PROC_GETCERTINFOHttpPostIn" />
+      <wsdl:output message="tns:LND_PROC_GETCERTINFOHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LND_PROC_UPDATECERTINFO">
+      <wsdl:input message="tns:LND_PROC_UPDATECERTINFOHttpPostIn" />
+      <wsdl:output message="tns:LND_PROC_UPDATECERTINFOHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LND_PROC_UPDATECOST">
+      <wsdl:input message="tns:LND_PROC_UPDATECOSTHttpPostIn" />
+      <wsdl:output message="tns:LND_PROC_UPDATECOSTHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LND_PROC_UPDATECERTSTATE">
+      <wsdl:input message="tns:LND_PROC_UPDATECERTSTATEHttpPostIn" />
+      <wsdl:output message="tns:LND_PROC_UPDATECERTSTATEHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ZZDZ_SUININGSoap" type="tns:ZZDZ_SUININGSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LND_PROC_GETCERTQUERY">
+      <soap:operation soapAction="http://tempuri.org/LND_PROC_GETCERTQUERY" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LND_PROC_GETCERTINFO">
+      <soap:operation soapAction="http://tempuri.org/LND_PROC_GETCERTINFO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LND_PROC_UPDATECERTINFO">
+      <soap:operation soapAction="http://tempuri.org/LND_PROC_UPDATECERTINFO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LND_PROC_UPDATECOST">
+      <soap:operation soapAction="http://tempuri.org/LND_PROC_UPDATECOST" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LND_PROC_UPDATECERTSTATE">
+      <soap:operation soapAction="http://tempuri.org/LND_PROC_UPDATECERTSTATE" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ZZDZ_SUININGSoap12" type="tns:ZZDZ_SUININGSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LND_PROC_GETCERTQUERY">
+      <soap12:operation soapAction="http://tempuri.org/LND_PROC_GETCERTQUERY" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LND_PROC_GETCERTINFO">
+      <soap12:operation soapAction="http://tempuri.org/LND_PROC_GETCERTINFO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LND_PROC_UPDATECERTINFO">
+      <soap12:operation soapAction="http://tempuri.org/LND_PROC_UPDATECERTINFO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LND_PROC_UPDATECOST">
+      <soap12:operation soapAction="http://tempuri.org/LND_PROC_UPDATECOST" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LND_PROC_UPDATECERTSTATE">
+      <soap12:operation soapAction="http://tempuri.org/LND_PROC_UPDATECERTSTATE" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ZZDZ_SUININGHttpGet" type="tns:ZZDZ_SUININGHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="LND_PROC_GETCERTQUERY">
+      <http:operation location="/LND_PROC_GETCERTQUERY" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LND_PROC_GETCERTINFO">
+      <http:operation location="/LND_PROC_GETCERTINFO" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LND_PROC_UPDATECERTINFO">
+      <http:operation location="/LND_PROC_UPDATECERTINFO" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LND_PROC_UPDATECOST">
+      <http:operation location="/LND_PROC_UPDATECOST" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LND_PROC_UPDATECERTSTATE">
+      <http:operation location="/LND_PROC_UPDATECERTSTATE" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ZZDZ_SUININGHttpPost" type="tns:ZZDZ_SUININGHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="LND_PROC_GETCERTQUERY">
+      <http:operation location="/LND_PROC_GETCERTQUERY" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LND_PROC_GETCERTINFO">
+      <http:operation location="/LND_PROC_GETCERTINFO" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LND_PROC_UPDATECERTINFO">
+      <http:operation location="/LND_PROC_UPDATECERTINFO" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LND_PROC_UPDATECOST">
+      <http:operation location="/LND_PROC_UPDATECOST" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LND_PROC_UPDATECERTSTATE">
+      <http:operation location="/LND_PROC_UPDATECERTSTATE" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ZZDZ_SUINING">
+    <wsdl:port name="ZZDZ_SUININGSoap" binding="tns:ZZDZ_SUININGSoap">
+      <soap:address location="http://172.18.0.147/FCWebService/ZZDZ_SUINING.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ZZDZ_SUININGSoap12" binding="tns:ZZDZ_SUININGSoap12">
+      <soap12:address location="http://172.18.0.147/FCWebService/ZZDZ_SUINING.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ZZDZ_SUININGHttpGet" binding="tns:ZZDZ_SUININGHttpGet">
+      <http:address location="http://172.18.0.147/FCWebService/ZZDZ_SUINING.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ZZDZ_SUININGHttpPost" binding="tns:ZZDZ_SUININGHttpPost">
+      <http:address location="http://172.18.0.147/FCWebService/ZZDZ_SUINING.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

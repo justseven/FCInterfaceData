@@ -1,0 +1,324 @@
+﻿@model  Web4BDC.Models.JGCXModel.DYQKCX
+@{
+    ViewBag.Title = "DYQKCX";
+    Layout = "~/Views/Shared/_CXLayout.cshtml";
+}
+
+        @foreach (Web4BDC.Models.JGCXModel.DYQK dyqk in Model.dyqk)
+        {
+            <div name="printDataDiv">
+                <table cellspacing="0" cellpadding="0" style="border-collapse:collapse; margin-left:5pt; width:auto">
+                    <tr style="height:45.45pt">
+                        <td colspan="4" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:477.55pt">
+                            <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                                <span style="font-family:宋体; font-size:14pt">
+                                    抵押权登记信息
+                                </span>
+                            </p>
+                        </td>
+                    </tr>
+
+                    <tr style="height:37.7pt">
+                        <td colspan="4" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:477.55pt">
+                            <p style="margin:0pt 0pt 0pt 11.5pt; orphans:0; padding-left:230pt; text-align:justify; text-indent:-230pt; widows:0">
+
+                                @*<p style="margin:0pt; orphans:0; text-align:justify; widows:0">*@
+                                <span style="font-family:宋体; font-size:10.5pt">
+                                    坐&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;落：
+                                </span>
+                                <span style="font-family:Calibri; font-size:10.5pt">
+                                    @dyqk.zl
+                                </span>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr style="height:37.7pt">
+                        <td colspan="4" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:477.55pt">
+                            <p style="margin:0pt 0pt 0pt 11.5pt; orphans:0; padding-left:230pt; text-align:justify; text-indent:-230pt; widows:0">
+                                @*<p style="margin:0pt; orphans:0; text-align:justify; widows:0">*@
+                                <span style="font-family:宋体; font-size:10.5pt">
+                                    不动产权证号：
+                                </span>
+                                <span style="font-family:Calibri; font-size:10.5pt">
+                                    @dyqk.bdczh
+                                </span>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr style="height:37.7pt">
+                        <td colspan="4" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:477.55pt">
+                            <p style="margin:0pt 0pt 0pt 11.5pt; orphans:0; padding-left:230pt; text-align:justify; text-indent:-230pt; widows:0">
+                                @*<p style="margin:0pt; orphans:0; text-align:justify; widows:0">*@
+                                <span style="font-family:宋体; font-size:10.5pt">
+                                    不动产单元号：
+                                </span>
+                                <span style="font-family:Calibri; font-size:10.5pt">
+                                    @dyqk.bdcdyh
+                                </span>
+                            </p>
+                        </td>
+                    </tr>
+
+                    <tr style="height:37.7pt">
+                        <td colspan="4" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:477.55pt">
+
+                            <p style="margin:0pt 0pt 0pt 11.5pt; orphans:0; padding-left:230pt; text-align:justify; text-indent:-230pt; widows:0">
+                                <span style="font-family:宋体; font-size:10.5pt">
+                                    不动产类型：
+                                </span>
+                                @if (!dyqk.bdclx.Equals("宗地"))
+                {
+                    <span style="font-family:宋体; font-size:10.5pt">
+                        □
+                    </span>
+}
+else
+{
+                <span style="font-family:宋体; font-size:10.5pt">
+                    √
+                </span>
+}
+                                <span style="font-family:宋体; font-size:10.5pt">
+                                    土地
+                                </span>
+                                @if (!dyqk.bdclx.Equals("房屋"))
+                {
+                    <span style="font-family:宋体; font-size:10.5pt">
+                        □
+                    </span>
+}
+else
+{
+                <span style="font-family:宋体; font-size:10.5pt">
+                    √
+                </span>
+}
+                                <span style="font-family:宋体; font-size:10.5pt">
+                                    土地和房屋
+                                </span>
+                                <span style="font-family:宋体; font-size:10.5pt">
+                                    □
+                                </span>
+                                <span style="font-family:宋体; font-size:10.5pt">
+                                    森林和林木
+                                </span>
+                                <span style="font-family:宋体; font-size:10.5pt">
+                                    □
+                                </span>
+                                <span style="font-family:宋体; font-size:10.5pt">
+                                    土地和在建建筑物
+                                </span>
+                            </p>
+                            <p style="margin:0pt; orphans:0; text-align:justify; text-indent:80pt; widows:0">
+                                <span style="font-family:宋体; font-size:10.5pt">
+                                    □
+                                </span>
+                                <span style="font-family:宋体; font-size:10.5pt">
+                                    海域
+                                </span>
+                                <span style="font-family:宋体; font-size:10.5pt">
+                                    □
+                                </span>
+                                <span style="font-family:宋体; font-size:10.5pt">
+                                    海域和构筑物
+                                </span>
+                                <span style="font-family:宋体; font-size:10.5pt">
+                                    □
+                                </span>
+                                <span style="font-family:宋体; font-size:10.5pt">
+                                    其他
+                                </span>
+                            </p>
+                        </td>
+                    </tr>
+
+                    <tr style="height:44.4pt">
+                        <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:111.2pt">
+                            <img src="~/Content/banner.png" width="100%" height="100%" />
+                        </td>
+                        @foreach (Web4BDC.Models.JGCXModel.DJDY item in dyqk.dyxx)
+        {
+
+                <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:80.75pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:Calibri; font-size:10.5pt">
+                            @item.SLBH
+                        </span>
+                    </p>
+                </td>
+}
+
+                    </tr>
+                    <tr style="height:47.7pt">
+                        <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:111.2pt">
+                            <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                                <span style="font-family:宋体; font-size:10.5pt">
+                                    抵押权人
+                                </span>
+                            </p>
+                        </td>
+                        @foreach (Web4BDC.Models.JGCXModel.DJDY item in dyqk.dyxx)
+        {
+                <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:80.75pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:Calibri; font-size:10.5pt">
+                            @item.DYQR
+                        </span>
+                    </p>
+                </td>
+}
+
+                    </tr>
+                    <tr style="height:45.45pt">
+                        <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:111.2pt">
+                            <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                                <span style="font-family:宋体; font-size:10.5pt">
+                                    抵押人
+                                </span>
+                            </p>
+                        </td>
+                        @foreach (Web4BDC.Models.JGCXModel.DJDY item in dyqk.dyxx)
+        {
+                <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:80.75pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:Calibri; font-size:10.5pt">
+                            @item.DYR
+                        </span>
+                    </p>
+                </td>
+}
+
+                    </tr>
+                    <tr style="height:47.7pt">
+                        <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:111.2pt">
+                            <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                                <span style="font-family:宋体; font-size:10.5pt">
+                                    抵押方式
+                                </span>
+                            </p>
+                        </td>
+                        @foreach (Web4BDC.Models.JGCXModel.DJDY item in dyqk.dyxx)
+        {
+                <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:80.75pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:Calibri; font-size:10.5pt">
+                            @item.DYFS
+                        </span>
+                    </p>
+                </td>
+}
+                    </tr>
+                    <tr style="height:45.45pt">
+                        <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:111.2pt">
+                            <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                                <span style="font-family:宋体; font-size:10.5pt">
+                                    登记类型
+                                </span>
+                            </p>
+                        </td>
+                        @foreach (Web4BDC.Models.JGCXModel.DJDY item in dyqk.dyxx)
+        {
+                <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:80.75pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:Calibri; font-size:10.5pt">
+                            @item.DJLX
+                        </span>
+                    </p>
+                </td>
+}
+                    </tr>
+                    <tr style="height:45.45pt">
+                        <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:111.2pt">
+                            <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                                <span style="font-family:宋体; font-size:10.5pt">
+                                    被担保主债权数额（最高债权数额）（万元）
+                                </span>
+                            </p>
+                        </td>
+                        @foreach (Web4BDC.Models.JGCXModel.DJDY item in dyqk.dyxx)
+        {
+                <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:80.75pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:Calibri; font-size:10.5pt">
+                            @if (item.DYJE > 0)
+            {
+                @item.DYJE;
+}
+                        </span>
+                    </p>
+                </td>
+}
+                    </tr>
+                    <tr style="height:47.7pt">
+                        <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:111.2pt">
+                            <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                                <span style="font-family:宋体; font-size:10.5pt">
+                                    债务履行期限
+                                </span>
+                            </p>
+                            <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                                <span style="font-family:宋体; font-size:10.5pt">
+                                    （债权确定期限）
+                                </span>
+                            </p>
+                        </td>
+                        @foreach (Web4BDC.Models.JGCXModel.DJDY item in dyqk.dyxx)
+        {
+                <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:80.75pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:Calibri; font-size:10.5pt">
+                            @item.DYQX
+                        </span>
+                    </p>
+                </td>
+}
+                    </tr>
+                    <tr style="height:45.45pt">
+                        <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:111.2pt">
+                            <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                                <span style="font-family:宋体; font-size:10.5pt">
+                                    不动产登记证明号
+                                </span>
+                            </p>
+                        </td>
+                        @foreach (Web4BDC.Models.JGCXModel.DJDY item in dyqk.dyxx)
+        {
+                <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:80.75pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:Calibri; font-size:10.5pt">
+                            @item.BDCZMH
+                        </span>
+                    </p>
+                </td>
+}
+                    </tr>
+                    <tr style="height:47.7pt">
+                        <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:111.2pt">
+                            <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                                <span style="font-family:宋体; font-size:10.5pt">
+                                    登记时间
+                                </span>
+                            </p>
+                        </td>
+                        @foreach (Web4BDC.Models.JGCXModel.DJDY item in dyqk.dyxx)
+        {
+                <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:80.75pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:Calibri; font-size:10.5pt">
+                            @item.DYRQ
+                        </span>
+                    </p>
+                </td>
+}
+                    </tr>
+                    <tr style="height:0pt">
+                        <td style="width:122pt; border:none"></td>
+                        <td style="width:91.55pt; border:none"></td>
+                        <td style="width:91.6pt; border:none"></td>
+                        <td style="width:91.6pt; border:none"></td>
+                        <td style="width:91.6pt; border:none"></td>
+                    </tr>
+                </table>
+            </div>
+        }
+

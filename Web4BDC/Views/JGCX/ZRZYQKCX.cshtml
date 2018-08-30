@@ -1,0 +1,267 @@
+﻿@model  Web4BDC.Models.JGCXModel.ZRZYQKCX
+
+
+@{
+    ViewBag.Title = "ZRZYQKCX";
+    Layout = "~/Views/Shared/_CXLayout.cshtml";
+}
+
+@foreach (Web4BDC.Models.JGCXModel.ZRZYQK item in Model.ZRZYList)
+{
+
+    <div name="printDataDiv">
+        <table cellspacing="0" cellpadding="0" style="word-break:break-all;border-collapse:collapse; margin-left:0pt; width:480.45pt">
+            <tr style="height:28.35pt">
+                <td colspan="4" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:417.9pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">
+                            不动产登记自然状况表
+                        </span>
+                    </p>
+                </td>
+            </tr>
+            <tr style="height:28.35pt">
+                <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:204.35pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">
+                            不动产证号
+                        </span>
+                    </p>
+                </td>
+                <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:202.75pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">
+                            @item.bdczh
+                        </span>
+                    </p>
+                </td>
+            </tr>
+            <tr style="height:28.35pt">
+                <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:204.35pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">
+                            不动产单元号
+                        </span>
+                    </p>
+                </td>
+                <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:202.75pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">
+                            @item.zrzyxx.bdcdyh
+                        </span>
+                    </p>
+                </td>
+            </tr>
+            <tr style="height:28.35pt">
+                <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:204.35pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">
+                            坐落
+                        </span>
+                    </p>
+                </td>
+                <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:202.75pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">
+                            @item.zrzyxx.zl
+                        </span>
+                    </p>
+                </td>
+            </tr>
+            <tr style="height:28.35pt">
+                <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:224.35pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">
+                            建筑面积/分摊（㎡）
+                        </span>
+                    </p>
+                </td>
+                <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:222.75pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">
+                            建筑面积: @item.zrzyxx.jzmj/分摊面积: @item.zrzyxx.ftmj
+                        </span>
+                    </p>
+                </td>
+            </tr>
+            <tr style="height:28.35pt">
+                <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:204.35pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">
+                            宗地面积/分摊土地（㎡）
+                        </span>
+                    </p>
+                </td>
+                <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:222.75pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">
+                            共有土地面积: @item.zrzyxx.zdmj/分摊土地面积: @item.zrzyxx.fttdmj
+                        </span>
+                    </p>
+                </td>
+            </tr>
+            <tr style="height:28.35pt">
+                <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:204.35pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">
+                            土地使用期限
+                        </span>
+                    </p>
+                </td>
+                <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:202.75pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">
+                            @item.zrzyxx.tdsyqx
+                        </span>
+                    </p>
+                </td>
+            </tr>
+            <tr style="height:28.35pt">
+                <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:204.35pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">
+                            规划用途
+                        </span>
+                    </p>
+                </td>
+                <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:202.75pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">
+                            @item.zrzyxx.tdghyt/ @item.zrzyxx.fwghyt
+                        </span>
+                    </p>
+                </td>
+            </tr>
+            <tr style="height:28.35pt">
+                <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:204.35pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">
+                            房屋性质
+                        </span>
+                    </p>
+                </td>
+                <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:202.75pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">
+                            @item.zrzyxx.fwxz
+                        </span>
+                    </p>
+                </td>
+            </tr>
+            <tr style="height:28.35pt">
+                <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:204.35pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">
+                            房屋结构
+                        </span>
+                    </p>
+                </td>
+                <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:202.75pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">
+                            @item.zrzyxx.fwjg
+                        </span>
+                    </p>
+                </td>
+            </tr>
+            <tr style="height:28.35pt">
+                <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:204.35pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">
+                            所在层/总层数
+                        </span>
+                    </p>
+                </td>
+                <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:202.75pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">
+                            @item.zrzyxx.szc/ @item.zrzyxx.zcs
+                        </span>
+                    </p>
+                </td>
+            </tr>
+            <tr style="height:28.35pt">
+                <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:204.35pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">
+                            登记时间
+                        </span>
+                    </p>
+                </td>
+                <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:202.75pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">
+                            @item.zrzyxx.djsj
+                        </span>
+                    </p>
+                </td>
+            </tr>
+            <tr style="height:28.35pt">
+                <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:97.5pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">
+                            预告登记
+                        </span>
+                    </p>
+                </td>
+                <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:96.05pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">
+                            @item.zrzyxx.ygqk
+                        </span>
+                    </p>
+                </td>
+                <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:95.9pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">
+                            查封登记
+                        </span>
+                    </p>
+                </td>
+                <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:96.05pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">
+                            @item.zrzyxx.cfqk
+                        </span>
+                    </p>
+                </td>
+            </tr>
+            <tr style="height:25.8pt">
+                <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:97.5pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">
+                            抵押登记
+                        </span>
+                    </p>
+                </td>
+                <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:96.05pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">
+                            @item.zrzyxx.dyqk
+                        </span>
+                    </p>
+                </td>
+                <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:95.9pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">
+                            异议登记
+                        </span>
+                    </p>
+                </td>
+                <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:96.05pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">
+                            @item.zrzyxx.yyqk
+                        </span>
+                    </p>
+                </td>
+            </tr>
+            <tr style="height:0pt">
+                <td style="width:108.3pt; border:none"></td>
+                <td style="width:106.85pt; border:none"></td>
+                <td style="width:106.7pt; border:none"></td>
+                <td style="width:106.85pt; border:none"></td>
+            </tr>
+        </table>
+    </div>
+}

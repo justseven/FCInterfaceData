@@ -1,0 +1,357 @@
+﻿@model Web4BDC.Models.FCWebServiceQueryForm
+
+<div style="width: 80%; margin:auto">
+    @using (Html.BeginForm())
+    {
+        <table width="100%" cellpadding="5">
+            <tr>
+                <td class="zctab">
+                    @Html.LabelFor(model => model.ExcuteCode)：
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.ExcuteCode)<span style="color:red">*</span>
+                </td>
+                <td class="zctab">
+                    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="GetData()">获取</a>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="zctab">
+                    @Html.LabelFor(model => model.ItemName)：
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.ItemName)
+                </td>
+                <td class="zctab">
+                    @Html.LabelFor(model => model.BuildingNo)：
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.BuildingNo)
+                </td>
+            </tr>
+            <tr>
+                <td class="zctab">
+                    @Html.LabelFor(model => model.ContractNo)：
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.ContractNo)
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    }
+    <table class="easyui-datagrid" title="房产幢信息" style=" height:250px" id="FC_Z_Table"
+           data-options="singleSelect:true,collapsible:true,method:'post',rownumbers:true">
+        <thead>
+            <tr>
+                <th data-options="field:'ID',width:50,formatter:OperationRow">取户信息</th>
+                <th data-options="field:'ZID'">幢ID</th>
+                <th data-options="field:'ZH'">幢号</th>
+                <th data-options="field:'BDCDYH'">不动产单元号</th>
+                <th data-options="field:'XMMC'">项目名称</th>
+                <th data-options="field:'JZWMC'">建筑物名称</th>
+                <th data-options="field:'ZTS'">总套数</th>
+                <th data-options="field:'LPLB'">楼盘类别</th>
+                <th data-options="field:'LZXZ'">楼幢性质</th>
+                <th data-options="field:'LZTD'">楼幢特点</th>
+                <th data-options="field:'FWZL'">房屋坐落</th>
+                <th data-options="field:'QLRZS'">权利人总数</th>
+                <th data-options="field:'GHYT'">规划用途</th>
+                <th data-options="field:'FWJG'">房屋结构</th>
+                <th data-options="field:'ZCS'">总层数</th>
+                <th data-options="field:'YCJZMJ'">预测建筑面积</th>
+                <th data-options="field:'SCJZMJ'">实测建筑面积</th>
+                <th data-options="field:'ZZDMJ'">幢占地面积</th>
+                <th data-options="field:'ZYDMJ'">幢用地面积</th>
+                <th data-options="field:'JZWGD'">建筑物高度</th>
+                <th data-options="field:'JGRQ'">竣工日期</th>
+                <th data-options="field:'DSCS'">地上层数</th>
+                <th data-options="field:'DXCS'">地下层数</th>
+                <th data-options="field:'DXSD'">地下深度</th>
+                <th data-options="field:'BZ'">备注</th>
+                <th data-options="field:'MPH'">门牌号</th>
+                <th data-options="field:'PCH'">批次号</th>
+                <th data-options="field:'LPBH'">楼盘编号（预测|实测)</th>
+            </tr>
+        </thead>
+    </table>
+
+    <table class="easyui-datagrid" title="房产户信息" style=" height:250px" id="FC_H_Table"
+           data-options="singleSelect:true,collapsible:true,method:'post',rownumbers:true">
+        <thead>
+            <tr>
+                <th data-options="field:'HID'">户ID</th>
+                <th data-options="field:'ZID'">幢ID</th>
+                <th data-options="field:'FWBH'">房屋编号</th>
+                <th data-options="field:'ZH'">幢号</th>
+                <th data-options="field:'HH'">户号</th>
+                <th data-options="field:'BDCDYH'">不动产单元号</th>
+                <th data-options="field:'QLLX'">权利类型</th>
+                <th data-options="field:'QLXZ'">权利性质</th>
+                <th data-options="field:'HX'">户型</th>
+                <th data-options="field:'HXJG'">户型结构</th>
+                <th data-options="field:'ZXCD'">建成时装修程度</th>
+                <th data-options="field:'GHYT'">规划用途</th>
+                <th data-options="field:'ZL'">坐落</th>
+                <th data-options="field:'SJC'">实际层</th>
+                <th data-options="field:'MYC'">名义层</th>
+                <th data-options="field:'DYH'">单元号</th>
+                <th data-options="field:'FJH'">房间号</th>
+                <th data-options="field:'LJZH'">逻辑幢号</th>
+                <th data-options="field:'QDJG'">取得价格</th>
+                <th data-options="field:'QDFS'">取得方式</th>
+                <th data-options="field:'SHBW'">室号部位</th>
+                <th data-options="field:'YCJZMJ'">预测建筑面积</th>
+                <th data-options="field:'YCTNJZMJ'">预测套内建筑面积</th>
+                <th data-options="field:'YCDXBFJZMJ'">预测地下部分建筑面积</th>
+                <th data-options="field:'YCFTJZMJ'">预测分摊建筑面积</th>
+                <th data-options="field:'YCQTJZMJ'">预测其它建筑面积</th>
+                <th data-options="field:'YCFTXS'">预测分摊系数</th>
+                <th data-options="field:'JZMJ'">实测建筑面积</th>
+                <th data-options="field:'TNJZMJ'">实测套内建筑面积</th>
+                <th data-options="field:'FTJZMJ'">实测分摊建筑面积</th>
+                <th data-options="field:'DXBFJZMJ'">实测地下部分建筑面积</th>
+                <th data-options="field:'QTJZMJ'">实测其他建筑面积</th>
+                <th data-options="field:'FTXS'">实测分摊系数</th>
+                <th data-options="field:'TDZZRQ'">土地终止日期</th>
+                <th data-options="field:'TDYT'">土地用途，按照土地利用地类标准2007</th>
+                <th data-options="field:'TDSYQR'">土地使用权人</th>
+                <th data-options="field:'GYTDMJ'">共有土地面积</th>
+                <th data-options="field:'FTTDMJ'">分摊土地面积</th>
+                <th data-options="field:'DYTDMJ'">独用土地面积</th>
+                <th data-options="field:'TCJS'">同层房间数量</th>
+                <th data-options="field:'CG'">层高</th>
+                <th data-options="field:'ZT'">状态</th>
+                <th data-options="field:'FCFHT'">分层分户图</th>
+                <th data-options="field:'FJSM'">附加说明</th>
+                <th data-options="field:'PCH'">批次号</th>
+                <th data-options="field:'FJBM'">房间编码（8位编码）</th>
+                <th data-options="field:'HSCID'">户实测ID</th>
+                <th data-options="field:'SPFHID'">SPFHID</th>
+                <th data-options="field:'LPBH'">LPBH</th>
+            </tr>
+        </thead>
+    </table>
+
+    <table class="easyui-datagrid" title="商品房预购合同" style=" height:250px" id="FC_SPFYGHT_Table"
+           data-options="singleSelect:true,collapsible:true,method:'post',rownumbers:true">
+        <thead>
+            <tr>
+                <th data-options="field:'HTID'">合同ID</th>
+                <th data-options="field:'HID'">户ID</th>
+                <th data-options="field:'ZID'">幢ID</th>
+                <th data-options="field:'SPFHTBAH'">商品房合同备案号</th>
+                <th data-options="field:'HTBASJ'">合同备案时间</th>
+                <th data-options="field:'HTBH'">合同编号</th>
+                <th data-options="field:'HTZL'">合同坐落</th>
+                <th data-options="field:'XSFS'">销售方式</th>
+                <th data-options="field:'HTQDRQ'">合同签订日期</th>
+                <th data-options="field:'HTQRRQ'">合同确认日期</th>
+                <th data-options="field:'HTQRR'">合同确认人</th>
+                <th data-options="field:'JZMJ'">建筑面积</th>
+                <th data-options="field:'TNJZMJ'">套内建筑面积</th>
+                <th data-options="field:'FTJZMJ'">分摊建筑面积</th>
+                <th data-options="field:'HTJE'">合同金额，单位：元</th>
+                <th data-options="field:'JJFS'">计价方式</th>
+                <th data-options="field:'FKLX'">付款类型</th>
+                <th data-options="field:'DKFS'">贷款方式</th>
+                <th data-options="field:'FKSJ'">付款时间</th>
+                <th data-options="field:'PGJG'">评估价格，单位：元</th>
+                <th data-options="field:'JYJG'">交易价格，单位：元</th>
+                <th data-options="field:'BZ'">备注</th>
+                <th data-options="field:'SFYX'">是否有效</th>
+                <th data-options="field:'PCH'">批次号</th>
+                <th data-options="field:'SPFHID'">商品房传过来房间ID</th>
+                <th data-options="field:'LPBH'">楼盘编号</th>
+                <th data-options="field:'FJBM'">房间编码</th>
+            </tr>
+        </thead>
+    </table>
+    <table class="easyui-datagrid" title="存量房合同" style=" height:250px" id="FC_CLMMHT_Table"
+           data-options="singleSelect:true,collapsible:true,method:'post',rownumbers:true">
+        <thead>
+            <tr>
+                <th data-options="field:'HTID'">合同ID</th>
+                <th data-options="field:'CQZH'">产权证号</th>
+                <th data-options="field:'HID'">户ID</th>
+                <th data-options="field:'ZID'">幢ID</th>
+                <th data-options="field:'CLHTBAH'">存量合同备案号</th>
+                <th data-options="field:'HTBASJ'">合同备案时间</th>
+                <th data-options="field:'FWZL'">房屋坐落</th>
+                <th data-options="field:'FWLX'">房屋类型</th>
+                <th data-options="field:'FWJG'">房屋结构</th>
+                <th data-options="field:'HX'">户型</th>
+                <th data-options="field:'JZMJ'">建筑面积</th>
+                <th data-options="field:'TNJZMJ'">套内建筑面积</th>
+                <th data-options="field:'FTJZMJ'">分摊建筑面积</th>
+                <th data-options="field:'PGJG'">评估价格，单位：元</th>
+                <th data-options="field:'JYJG'">交易价格，单位：元</th>
+                <th data-options="field:'FKLX'">付款类型</th>
+                <th data-options="field:'DKFS'">贷款方式</th>
+                <th data-options="field:'FKSJ'">付款时间</th>
+                <th data-options="field:'QDSJ'">签订时间</th>
+                <th data-options="field:'QRSJ'">确认时间</th>
+                <th data-options="field:'QRQZSJ'">确认签字时间</th>
+                <th data-options="field:'ZHBGTGSJ'">最后变更通过时间</th>
+                <th data-options="field:'CXSJ'">撤销时间</th>
+                <th data-options="field:'JSSJ'">结束时间</th>
+                <th data-options="field:'SFYX'">是否有效</th>
+                <th data-options="field:'HTBH'">房产交易合同编号</th>
+                <th data-options="field:'PCH'">批次号</th>
+            </tr>
+        </thead>
+    </table>
+    <table class="easyui-datagrid" title="权利人信息" style=" height:250px" id="FC_GFQLRXX_Table"
+           data-options="singleSelect:true,collapsible:true,method:'post',rownumbers:true">
+        <thead>
+            <tr>
+                <th data-options="field:'QLRID'">权利人ID</th>
+                <th data-options="field:'HTID'">合同ID</th>
+                <th data-options="field:'HTBAH'">合同备案号</th>
+                <th data-options="field:'FWLX'">商品房/存量房</th>
+                <th data-options="field:'XGRMC'">相关人名称</th>
+                <th data-options="field:'XGRLX'">1为购房者，0为售房者</th>
+                <th data-options="field:'ZJLX'">证件类型</th>
+                <th data-options="field:'ZJHM'">证件号</th>
+                <th data-options="field:'XGRSX'">相关人顺序</th>
+                <th data-options="field:'PCH'">批次号</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+@section script
+{
+    <script type="text/javascript">
+        var ch = '0000';
+        var spf = '1000';
+        var clf = '2000';
+        function GetData() {
+            //$('#FC_Z_Table').datagrid('getPanel').panel('collapse', false);
+            $('#FC_Z_Table').datagrid('loadData', { total: 0, rows: [] }); 
+            //$('#FC_H_Table').datagrid('getPanel').panel('collapse', false);
+            $('#FC_H_Table').datagrid('loadData', { total: 0, rows: [] }); 
+            //$('#FC_SPFYGHT_Table').datagrid('getPanel').panel('collapse', false);
+            $('#FC_SPFYGHT_Table').datagrid('loadData', { total: 0, rows: [] });
+            //$('#FC_CLMMHT_Table').datagrid('getPanel').panel('collapse', false);
+            $('#FC_CLMMHT_Table').datagrid('loadData', { total: 0, rows: [] });
+            //$('#FC_GFQLRXX_Table').datagrid('getPanel').panel('collapse', false);
+            $('#FC_GFQLRXX_Table').datagrid('loadData', { total: 0, rows: [] });
+            if (validation()) {
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("GetXZFCPlugWebService")',
+                    data: queryParam(), 
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data) {
+                            dataHandedout(data);
+                        }
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        art.dialog({
+                            content: "获取数据异常，异常信息:[" + XMLHttpRequest.responseText + "]"
+                        });
+                    }
+                });
+            }
+        }
+
+        $(function () {
+            $('#ExcuteCode').combobox({
+                valueField: 'value',
+                textField: 'label',
+                data: [{
+                    label: '测绘信息',
+                    value: ch
+                }, {
+                    label: '预购商品房合同信息',
+                    value: spf
+                }, {
+                    label: '存量房合同信息',
+                    value: clf
+                }]
+            });
+        });
+
+        function validation() {
+            if ($('#ExcuteCode').combobox('getValue')==ch) {
+                if ($("#ItemName").val() == '') {
+                    art.dialog({
+                        content: "请输入项目名称和幢号"
+                    });
+                    return false;
+                }
+            }
+            else {
+                if ($("#ContractNo").val() == '') {
+                    art.dialog({
+                        content: "请输入合同编号"
+                    });
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function queryParam() {
+            var o = {};
+            o.ExcuteCode = $('#ExcuteCode').combobox('getValue');
+            o.ItemName = $('#ItemName').val();
+            o.BuildingNo = $('#BuildingNo').val(); 
+            o.ContractNo = $('#ContractNo').val();
+            return o;
+        }
+        //数据分发
+        function dataHandedout(data) {
+            if (data.FC_Z_Table) {
+                $('#FC_Z_Table').datagrid('loadData', data.FC_Z_Table);
+                //$('#FC_Z_Table').datagrid('getPanel').panel('expand', false);
+            }
+            if (data.FC_H_Table) {
+                $('#FC_H_Table').datagrid('loadData', data.FC_H_Table);
+                //$('#FC_H_Table').datagrid('getPanel').panel('expand', false);
+            }
+            if (data.FC_SPFYGHT_Table) {
+                $('#FC_SPFYGHT_Table').datagrid('loadData', data.FC_SPFYGHT_Table);
+                //$('#FC_SPFYGHT_Table').datagrid('getPanel').panel('expand', false);
+            }
+            if (data.FC_CLMMHT_Table) {
+                $('#FC_CLMMHT_Table').datagrid('loadData', data.FC_CLMMHT_Table);
+                //$('#FC_CLMMHT_Table').datagrid('getPanel').panel('expand', false);
+            } 
+            if (data.FC_GFQLRXX_Table) {
+                $('#FC_GFQLRXX_Table').datagrid('loadData', data.FC_GFQLRXX_Table);
+                //$('#FC_GFQLRXX_Table').datagrid('getPanel').panel('expand', false);
+            }
+        }
+
+        function OperationRow(value, row, index) {
+            return '<a href="#" onclick=\'GetHouse("' + row.ZID + '");return false;\'>取户</a>'
+        }
+        function GetHouse(zid) {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GetXZFCPlugWebServiceGetH")',
+                data: { ZID: zid },
+                dataType: 'json',
+                success: function (data) {
+                    if (data) {
+                        dataHandedout(data);
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    art.dialog({
+                        content: "获取数据异常，异常信息:[" + XMLHttpRequest.responseText + "]"
+                    });
+                }
+            });
+        }
+    </script>
+}
+
+
+
+
+

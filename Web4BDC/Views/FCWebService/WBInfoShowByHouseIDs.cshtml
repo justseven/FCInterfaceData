@@ -1,0 +1,153 @@
+﻿<div style="margin:auto">
+    @using (Html.BeginForm())
+    {
+        <table width="100%" cellpadding="5">
+            <tr>
+                <td class="zctab">
+                    @Html.Hidden("Hids", ViewData["Hids"])
+                    @Html.Hidden("SLBH", ViewData["SLBH"])
+                </td>
+                
+            </tr>
+        </table>
+    }
+    <table class="easyui-datagrid" title="网备信息" style=" height:100%" id="WB_Table"
+           data-options="singleSelect:true,collapsible:true,method:'post',rownumbers:true,fit:false">
+        <thead>
+            <tr>
+                @*<th data-options="field:'HID',width:100">户ID</th>*@
+                <th data-options="field:'ZL',width:150">坐落</th>
+                <th data-options="field:'JZMJ',width:80">建筑面积</th>
+                <th data-options="field:'FWZT',width:80">交易状态</th>
+                <th data-options="field:'CFZT',width:80">查封次数</th>
+                <th data-options="field:'DYZT',width:80">抵押次数</th>
+                <th data-options="field:'MCString',width:160">权利人名称</th>
+                <th data-options="field:'ZJLXString',width:160">权利人证件类型</th>
+                <th data-options="field:'ZJHMString',width:300">权利人证件号码</th>
+            </tr>
+        </thead>d
+    </table>
+
+    <table class="easyui-datagrid" title="存量房合同" style=" height:100%" id="WBCLF_Table"
+           data-options="singleSelect:true,collapsible:true,method:'post',rownumbers:true,fit:false">
+        <thead>
+            <tr>
+                <th data-options="field:'HTID'">合同ID</th>
+                <th data-options="field:'CQZH'">产权证号</th>
+                <th data-options="field:'SYQR'">售房人</th>
+                <th data-options="field:'BARPASSNO'">售房证件号码</th>
+                <th data-options="field:'YWR'">购房人</th>
+                <th data-options="field:'YWRNO'">购房人证件号码</th>
+                <th data-options="field:'CLHTBAH'">存量合同备案号</th>
+                <th data-options="field:'HTBASJ'">合同备案时间</th>
+                <th data-options="field:'FWZL'">房屋坐落</th>
+                <th data-options="field:'FWLX'">房屋类型</th>
+                <th data-options="field:'FWJG'">房屋结构</th>
+                <th data-options="field:'HX'">户型</th>
+                <th data-options="field:'JZMJ'">建筑面积</th>
+                <th data-options="field:'TNJZMJ'">套内建筑面积</th>
+                <th data-options="field:'FTJZMJ'">分摊建筑面积</th>
+                <th data-options="field:'PGJG'">评估价格，单位：元</th>
+                <th data-options="field:'JYJG'">交易价格，单位：元</th>
+                <th data-options="field:'FKLX'">付款类型</th>
+                <th data-options="field:'DKFS'">贷款方式</th>
+                <th data-options="field:'FKSJ'">付款时间</th>
+                <th data-options="field:'QDSJ'">签订时间</th>
+                <th data-options="field:'QRSJ'">确认时间</th>
+                <th data-options="field:'QRQZSJ'">确认签字时间</th>
+                <th data-options="field:'ZHBGTGSJ'">最后变更通过时间</th>
+                <th data-options="field:'CXSJ'">撤销时间</th>
+                <th data-options="field:'JSSJ'">结束时间</th>
+                <th data-options="field:'SFYX'">是否有效</th>
+                
+            </tr>
+        </thead>
+    </table>
+</div>
+@section script
+{
+    <script type="text/javascript">
+
+        function queryParam() {
+            var o = {};
+            o.HouseIds = $('#Hids').val();
+            return o;
+        }
+
+        function queryCLFParam() {
+            var o = {};
+            o.slbh = $('#SLBH').val();
+            return o;
+        }
+        function GetData() {
+            var Hids = $('#Hids').val();
+            if (!Hids) {
+                alert("请输入户HID");
+                return;
+            }
+            if (true) {
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("GetWBInfoByIds")',
+                    data: queryParam(),
+                    dataType: 'json',
+                    success: function (data) {
+                        $('#WB_Table').datagrid('loadData', []);
+                        if (data && data.Rows.length > 0) {
+                            //var d = { total: data.length, rows: data };
+                            $('#WB_Table').datagrid('loadData', data.Rows);
+                        }
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        art.dialog({
+                            content: "获取数据异常，异常信息:[" + XMLHttpRequest.responseText + "]"
+                        });
+                    }
+                });
+            }
+        }
+
+         function GetCLFData() {
+             var Hids = $('#Hids').val();
+             var slbh = $('#SLBH').val();
+            if (!Hids) {
+                alert("请输入户HID");
+                return;
+             }
+            
+            if (true) {
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("GetWBCLFInfoByIds")',
+                    data: queryCLFParam(),
+                    dataType: 'json',
+                    success: function (data) {
+                        $('#WBCLF_Table').datagrid('loadData', []);
+                        if (data && data.Rows.length > 0) {
+                            //var d = { total: data.length, rows: data };
+                            $('#WBCLF_Table').datagrid('loadData', data.Rows);
+                        }
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        art.dialog({
+                            content: "获取数据异常，异常信息:[" + XMLHttpRequest.responseText + "]"
+                        });
+                    }
+                });
+            }
+        }
+
+        $(function () {
+           var  Hids = $('#Hids').val();
+            if (Hids) {
+                GetData();
+                GetCLFData();
+            }
+        });
+    </script>
+}
+
+
+
+
+

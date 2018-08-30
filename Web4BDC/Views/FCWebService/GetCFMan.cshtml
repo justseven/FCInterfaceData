@@ -1,0 +1,69 @@
+﻿@model Web4BDC.Models.CFManQueryForm
+@using (Html.BeginForm())
+{ 
+	<div id="p" class="easyui-panel" title="Basic Panel" style="width:700px;height:500px;padding:10px;">
+		<p style="font-size:14px">在此页面上输入房屋坐落查询权利人信息</p>
+        <table width="100%" cellpadding="5">
+            <tr>
+                <td class="zctab">
+                    @Html.LabelFor(model => model.Address)：
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.Address)<span style="color:red">*</span><br />
+                </td>
+                <td>
+                    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="FindHouse()">查询</a> 
+                </td>
+            </tr>
+            <tr>
+                <td class="zctab" >
+                    选择房屋信息：
+                </td>
+                <td class="zctab">
+                    <table id="gridTable"></table>
+                </td>
+                <td>
+                    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="FindMan()">获取</a> 
+                </td>
+            </tr>
+            <tr>
+                <td class="zctab">
+                    权利人信息：
+                </td>
+                <td>
+                    <textarea id="ManInfo"></textarea>
+                </td>
+                <td></td>
+            </tr>
+        </table>
+	</div>
+}
+@section script
+{
+     <script type="text/javascript">
+         $(function () {
+             $("#gridTable").datagrid({
+                 url: '@Url.Action("GetHouseInfoByAddress")',
+                 pagination: true,
+                 rownumbers: true,
+                 singleSelect: true,
+                 idField: 'TSTYBM',
+                 fitColumns: true,
+                 columns: [[
+                      { field: 'TSTYBM', align: 'center', checkbox: true },
+                      { field: 'ZL', title: '坐落', align: 'center', width: parseInt($(this).width() * 0.2)},
+                      { field: 'TDYT', title: '用途', align: 'center', width: parseInt($(this).width() * 0.2)}
+                 ]]
+             });
+
+         });
+
+         function FindHouse() {
+             if ($("#Address").val().trim() != '') { 
+                 $('#gridTable').datagrid('load', {
+                     Address: $("#Address").val()
+                 }); 
+             }
+         }
+     </script>
+}

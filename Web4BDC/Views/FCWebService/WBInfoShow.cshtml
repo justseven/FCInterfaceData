@@ -1,0 +1,110 @@
+﻿@model Web4BDC.Models.WBQueryForm
+
+<div style="width: 80%; margin:auto">
+    @using (Html.BeginForm())
+    {
+        <table width="100%" cellpadding="5">
+            <tr> 
+                <td class="zctab">
+                    @Html.LabelFor(model => model.Address)：@Html.TextBoxFor(model => model.Address)
+                </td>
+                <td>
+                    @Html.LabelFor(model => model.QLRXM)：@Html.TextBoxFor(model => model.QLRXM)
+                </td>
+                <td>
+                    @Html.LabelFor(model => model.ZJHM)：@Html.TextBoxFor(model => model.ZJHM)
+                </td>
+                <td class="zctab">
+                    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="GetData()">获取</a>
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    }
+    <table class="easyui-datagrid" title="新建商品房网签信息" style=" height:450px" id="WB_Table"
+           data-options="singleSelect:true,collapsible:true,method:'post',rownumbers:true">
+        <thead>
+            <tr>
+                <th data-options="field:'HouseID',width:100">户ID</th>
+                <th data-options="field:'BuildingID',width:100">幢ID</th>
+                <th data-options="field:'ZL',width:300">房屋坐落</th>
+                <th data-options="field:'QLRMC',width:80">权利人名称</th>
+                <th data-options="field:'ZJHM',width:140">证件号码</th>
+                <th data-options="field:'JZMJ',width:80">建筑面积</th>
+                <th data-options="field:'ContractNO',width:100">合同编号</th>
+                <th data-options="field:'SignDate',width:100,formatter:optTime">签订日期</th>
+            </tr>
+        </thead>
+    </table> 
+</div>
+@section script
+{
+    <script type="text/javascript">
+
+        function queryParam() {
+            var o = {};
+            o.Address = $('#Address').val();
+            o.QLRXM = $('#QLRXM').val();
+            o.ZJHM = $('#ZJHM').val();
+            return o;
+        }
+        function GetData() {
+            var HouseIds=$('#HouseIds').val();
+            var Address = $('#Address').val();
+            var QLRXM = $('#QLRXM').val();
+            var ZJHM = $('#ZJHM').val();
+            if (!Address && !QLRXM && !ZJHM && !HouseIds) {
+                alert("请输入查询信息");
+                return;
+            }
+            if (true) {
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("GetWBInfo")',
+                    data: queryParam(),
+                    dataType: 'json',
+                    success: function (data) {
+                        $('#WB_Table').datagrid('loadData', []);
+                        if (data && data.Rows.length > 0) {
+                            //var d = { total: data.length, rows: data };
+                            $('#WB_Table').datagrid('loadData', data.Rows);
+                        }
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        art.dialog({
+                            content: "获取数据异常，异常信息:[" + XMLHttpRequest.responseText + "]"
+                        });
+                    }
+                });
+            }
+        }
+
+        $(function () {
+            var HouseIds = $('#HouseIds').val();
+            var Address = $('#Address').val();
+            var QLRXM = $('#QLRXM').val();
+            var ZJHM = $('#ZJHM').val();
+            if (HouseIds || Address || QLRXM || ZJHM) {
+                GetData();
+            }
+        });
+        function optTime(value, row, index) {
+            if (value) {
+                var d= eval('new ' + (value.replace(/\//g, '')));
+                var ar_date = [d.getFullYear(), d.getMonth() + 1, d.getDate()];
+                function dFormat(i) {
+                    return i < 10 ? "0" + i.toString() : i;
+                }
+                for (var i = 0; i < ar_date.length; i ++) ar_date[i] = dFormat(ar_date[i]);
+                return ar_date.join('-') ;
+            }
+            else
+                return "";
+        }
+    </script>
+}
+
+
+
+
+

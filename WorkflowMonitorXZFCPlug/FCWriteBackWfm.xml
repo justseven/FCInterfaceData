@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<WriteBackWfm>
+  <!--需要回写的Process id-->
+  <PIDS>
+    <!--<PID name="首次登记(商品房)" viewId="1" WSAID="1" StepName="登薄">Proc-150127164533-NGF79793</PID>
+    <PID name="预告抵押登记(商品房)" viewId="2" WSAID="2" StepName="登薄">Proc-150128101447-958G22UD</PID>
+    <PID name="预告抵押注销登记(商品房)" viewId="5" WSAID="2" StepName="登薄">Proc-151120123108-9CV0SD6G</PID>
+    <PID name="查封不动产单元(商品房)" viewId="3" WSAID="3" StepName="登薄">Proc-151119101528-1F8127BN</PID>
+    <PID name="查封登记(商品房)" viewId="3" WSAID="3" StepName="登薄">Proc-141121093254-QT6G02BR</PID>
+    <PID name="解封登记(商品房)" viewId="6" WSAID="3" StepName="登薄">Proc-141121093857-T958RG45</PID>
+    <PID name="预告登记(商品房)" viewId="4" WSAID="4" StepName="登薄">Proc-150109123158-XU1A38LY</PID>-->
+    <PID name="首次登记(商品房)" viewId="1" WSAID="1" StepName="登簿">Proc-150127164533-NGF79793</PID>
+    <PID name="预告抵押登记(商品房)" viewId="2" WSAID="2" StepName="登簿">Proc-150128101447-958G22UD</PID>
+    <PID name="预告抵押注销登记(商品房)" viewId="5" WSAID="2" StepName="登簿">Proc-151120123108-9CV0SD6G</PID>
+    <PID name="查封不动产单元(商品房)" viewId="3" WSAID="3" StepName="登簿">Proc-151119101528-1F8127BN</PID>
+    <PID name="查封设立登记（商品房）" viewId="3" WSAID="3" StepName="登簿">Proc-160115202342-61GJWN42</PID>
+    <PID name="查封登记(商品房)" viewId="3" WSAID="3" StepName="登簿">Proc-141121093254-QT6G02BR</PID>
+    <PID name="查封注销登记（商品房）" viewId="6" WSAID="3" StepName="登簿">Proc-160115205043-TEX075KT</PID>
+    <PID name="预告登记及抵押预告(商品房)" viewId="4" WSAID="4" StepName="登簿">Proc-150723151225-X1L652FJ</PID>
+    <PID name="预告登记及抵押预告(商品房)" viewId="2" WSAID="2" StepName="登簿">Proc-150723151225-X1L652FJ</PID>
+
+  </PIDS>
+  <ViewNames>v
+    <!--初始登记-->
+    <ViewName id="1" sql="select HouseID,CSDJNo,CSDJSite,CSDJUse from fc_updateinitcert">fc_updateinitcert</ViewName> 
+    <!--抵押登记-->
+    <ViewName id="2" sql="select HouseID,Type,MortgageState,dyrq from fc_updatemortage">fc_updatemortage</ViewName>
+    <!--抵押注销登记-->
+    <ViewName id="5" sql="select HouseID,Type,MortgageState,dyrq from fc_updatemortageunreg">fc_updatemortageunreg</ViewName>
+    <!--查封登记-->
+    <ViewName id="3" sql="select HouseID,Type,SealState from fc_updateseal">fc_updateseal</ViewName> 
+    <!--查封注销登记-->
+    <ViewName id="6" sql="select HouseID,Type,SealState from fc_updatesealunreg">fc_updatesealunreg</ViewName>
+    <!--预告登记-->
+    <ViewName id="4" sql="select HouseID,YGDJState from fc_updateygdj">fc_updateygdj</ViewName>
+  </ViewNames>
+  <WebserviceAdds>
+    <WebserviceAdd id="1">UpdateCSDJStateForSPF</WebserviceAdd>
+    <WebserviceAdd id="2">UpdateMortgageStateForSPF</WebserviceAdd>
+    <WebserviceAdd id="3">UpdateSealStateForSPF</WebserviceAdd>
+    <WebserviceAdd id="4">UpdateYGDJStateForSPF</WebserviceAdd>
+  </WebserviceAdds>
+</WriteBackWfm>

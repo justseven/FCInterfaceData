@@ -1,0 +1,279 @@
+﻿@model  Web4BDC.Models.JGCXModel.CFQKCX
+@{
+    ViewBag.Title = "CFQKCX";
+    Layout = "~/Views/Shared/_CXLayout.cshtml";
+}
+
+@foreach (Web4BDC.Models.JGCXModel.CFQK cfqk in Model.CFQK)
+{
+    <div name="printDataDiv">
+        <table cellspacing="0" cellpadding="0" style="border-collapse:collapse; margin-left:5pt; width:459.3pt">
+            <tr style="height:30.2pt">
+                <td colspan="5" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:447.75pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:宋体; font-size:14pt">
+                            查封登记信息
+                        </span>
+                    </p>
+                </td>
+            </tr>
+            <tr style="height:26.95pt">
+                <td colspan="5" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:447.75pt">
+                    <p style="margin:0pt 0pt 0pt 11.5pt; orphans:0; padding-left:230pt; text-align:justify; text-indent:-230pt; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">
+                            不动产权证号：
+                        </span>
+                        <span style="font-family:Calibri; font-size:10.5pt">
+                            @cfqk.BDCZH
+                        </span>
+                    </p>
+                </td>
+            </tr>
+            <tr style="height:26.95pt">
+                <td colspan="5" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:447.75pt">
+                    <p style="margin:0pt 0pt 0pt 11.5pt; orphans:0; padding-left:230pt; text-align:justify; text-indent:-230pt; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">
+                            坐落：
+                        </span>
+                        <span style="font-family:Calibri; font-size:10.5pt">
+                            @cfqk.ZL
+                        </span>
+                    </p>
+                </td>
+            </tr>
+            <tr style="height:26.95pt">
+                <td colspan="5" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:447.75pt">
+                    <p style="margin:0pt 0pt 0pt 11.5pt; orphans:0; padding-left:230pt; text-align:justify; text-indent:-230pt; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">
+                            不动产单元号：
+                        </span>
+                        <span style="font-family:Calibri; font-size:10.5pt">
+                            @cfqk.BDCDYH
+                        </span>
+                    </p>
+                </td>
+            </tr>
+
+            <tr style="height:53.7pt">
+                <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:115.6pt">
+                    <img src="~/Content/banner.png" width="100%" height="100%" />
+                </td>
+                @foreach (Web4BDC.Models.JGCXModel.CFXX item in cfqk.CFXXList)
+        {
+            <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:72.2pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:Calibri; font-size:10.5pt">
+                        @item.CF.SLBH
+                    </span>
+                </p>
+            </td>
+}
+
+            </tr>
+            <tr style="height:31.35pt">
+                <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:72.2pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">
+                            查封机关
+                        </span>
+                    </p>
+                </td>
+                @foreach (Web4BDC.Models.JGCXModel.CFXX item in cfqk.CFXXList)
+        {
+            <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:72.2pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:Calibri; font-size:10.5pt">
+                        @item.CF.CFJG
+                    </span>
+                </p>
+            </td>
+}
+
+            </tr>
+            <tr style="height:32.85pt">
+                <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:72.2pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">
+                            查封类型
+                        </span>
+                    </p>
+                </td>
+                @foreach (Web4BDC.Models.JGCXModel.CFXX item in cfqk.CFXXList)
+        {
+            <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:72.2pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:Calibri; font-size:10.5pt">
+                        @item.CF.CFLX
+                    </span>
+                </p>
+            </td>
+}
+            </tr>
+            <tr style="height:31.35pt">
+                <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:72.2pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">
+                            查封文件
+                        </span>
+                    </p>
+                </td>
+                @foreach (Web4BDC.Models.JGCXModel.CFXX item in cfqk.CFXXList)
+        {
+            <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:72.2pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:Calibri; font-size:10.5pt">
+                        @item.CF.CFWJ
+                    </span>
+                </p>
+            </td>
+}
+            </tr>
+            <tr style="height:31.35pt">
+                <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:72.2pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">
+                            查封文号
+                        </span>
+                    </p>
+                </td>
+                @foreach (Web4BDC.Models.JGCXModel.CFXX item in cfqk.CFXXList)
+        {
+            <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:72.2pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:Calibri; font-size:10.5pt">
+                        @item.CF.CFWH
+                    </span>
+                </p>
+            </td>
+}
+            </tr>
+            <tr style="height:32.85pt">
+                <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:72.2pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">
+                            查封期限
+                        </span>
+                    </p>
+                </td>
+                @foreach (Web4BDC.Models.JGCXModel.CFXX item in cfqk.CFXXList)
+        {
+            <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:72.2pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:Calibri; font-size:10.5pt">
+                        @item.CF.CFQX
+                    </span>
+                </p>
+            </td>
+}
+            </tr>
+            <tr style="height:31.35pt">
+                <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:72.2pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">
+                            查封范围
+                        </span>
+                    </p>
+                </td>
+                @foreach (Web4BDC.Models.JGCXModel.CFXX item in cfqk.CFXXList)
+        {
+            <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:72.2pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:Calibri; font-size:10.5pt">
+                        @item.CF.CFFW
+                    </span>
+                </p>
+            </td>
+}
+
+            </tr>
+            <tr style="height:32.85pt">
+                <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:72.2pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">
+                            查封顺位
+                        </span>
+                    </p>
+                </td>
+                @foreach (Web4BDC.Models.JGCXModel.CFXX item in cfqk.CFXXList)
+        {
+            <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:72.2pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:Calibri; font-size:10.5pt">
+                        @item.CF.CFSXStr
+                    </span>
+                </p>
+            </td>
+}
+
+
+            </tr>
+            <tr style="height:32.85pt">
+                <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:72.2pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">
+                            查封起始日期
+                        </span>
+                    </p>
+                </td>
+                @foreach (Web4BDC.Models.JGCXModel.CFXX item in cfqk.CFXXList)
+        {
+
+            <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:72.2pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:Calibri; font-size:10.5pt">
+                        @item.CF.CFQSSJStr
+                    </span>
+                </p>
+            </td>
+}
+            </tr>
+            <tr style="height:32.85pt">
+                <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:72.2pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">
+                            查封截止日期
+                        </span>
+                    </p>
+                </td>
+                @foreach (Web4BDC.Models.JGCXModel.CFXX item in cfqk.CFXXList)
+        {
+            <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:72.2pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:Calibri; font-size:10.5pt">
+                        @item.CF.CFJSSJStr
+                    </span>
+                </p>
+            </td>
+
+}
+            </tr>
+            <tr style="height:32.85pt">
+                <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:72.2pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:宋体; font-size:10.5pt">
+                            查封登记时间
+                        </span>
+                    </p>
+                </td>
+                @foreach (Web4BDC.Models.JGCXModel.CFXX item in cfqk.CFXXList)
+        {
+            <td style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:72.2pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:Calibri; font-size:10.5pt">
+                        @item.CF.CFRQStr
+                    </span>
+                </p>
+            </td>
+}
+            </tr>
+            @*<tr style="height:0pt">
+            <td style="width:126.4pt; border:none"></td>
+            <td style="width:83pt; border:none"></td>
+            <td style="width:83pt; border:none"></td>
+            <td style="width:83pt; border:none"></td>
+            <td style="width:83.15pt; border:none"></td>
+        </tr>*@
+        </table>
+    </div>
+
+}

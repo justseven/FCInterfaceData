@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "SearchWB";
+}
+
+<div style="width: 80%; margin:auto">
+    @using (Html.BeginForm())
+    {
+        <table width="100%" cellpadding="5">
+            <tr>
+                <td class="zctab">
+                    房屋坐落：
+                </td>
+                <td>
+                    @Html.TextBox("WBZL")<span style="color:red">*</span>
+                </td>
+                <td class="zctab">
+                    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="GetData()">获取</a>
+                </td>
+                <td></td>
+            </tr>
+
+        </table>
+    }
+    <table class="easyui-datagrid" title="网备房屋信息" style=" height:450px" id="WB_Table"
+           data-options="singleSelect:true,collapsible:true,method:'post',rownumbers:true">
+        <thead>
+            <tr>
+                <th data-options="field:'TSTYBM',width:100">户ID</th>
+                <th data-options="field:'FJH',width:100">房间号</th>
+                <th data-options="field:'ZL',width:300">房屋坐落</th>
+                <th data-options="field:'JZMJ',width:80">建筑面积</th>
+                <th data-options="field:'JZWMC',width:140">建筑物名称</th>
+                <th data-options="field:'XMMC',width:80">项目名称</th>
+            </tr>
+        </thead>
+    </table> 
+</div>
+@section script
+{
+    <script type="text/javascript">
+
+
+        function GetData() {
+            var zl = $('#WBZL').val();
+            $.ajax({
+                
+                url: '@Url.Action("SearchWB")' + '/?zl=' + zl,
+                type: 'POST', 
+                    success: function (data) {
+                        $('#WB_Table').datagrid('loadData', []);
+                        if (data && data.Rows.length > 0) {
+                            //var d = { total: data.length, rows: data };
+                            $('#WB_Table').datagrid('loadData', data.Rows);
+                        }
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        art.dialog({
+                            content: "获取数据异常，异常信息:[" + XMLHttpRequest.responseText + "]"
+                        });
+                    }
+                });
+
+        }
+
+        function queryParam() {
+            var o = {};
+            o.PrjId = $('#WBZL').val();
+            return o;
+        }
+</script>
+ }
+    

@@ -1,0 +1,652 @@
+﻿@model  Web4BDC.Models.JGCXModel.QSQKCX
+
+@{
+    ViewBag.Title = "权属情况";
+    Layout = "~/Views/Shared/_CXLayout.cshtml";
+}
+@foreach (Web4BDC.Models.JGCXModel.QSQK item in Model.QSQKList)
+{
+
+
+<div name="printDataDiv">
+    <table cellspacing="0" cellpadding="0" style="word-break:break-all; border-collapse:collapse; margin-left:0pt; width:482.75pt">
+        <tr style="height:22.7pt">
+            <td colspan="13" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:471.2pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:宋体; font-size:10.5pt">
+                        不动产登记信息查询
+                    </span>
+                    
+                </p>
+            </td>
+        </tr>
+        <tr style="height:22.55pt">
+            <td colspan="3" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:116.85pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:宋体; font-size:10.5pt">
+                        登记类型
+                    </span>
+                </p>
+            </td>
+            <td colspan="3" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:74.25pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:Calibri; font-size:10.5pt">
+                        @item.Qsxx.DJLX
+                    </span>
+                </p>
+            </td>
+            <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:89.95pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:宋体; font-size:10.5pt">
+                        不动产权证书号
+                    </span>
+                </p>
+            </td>
+            <td colspan="5" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:157.75pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:Calibri; font-size:10.5pt">
+                        @item.Qsxx.BDCZH
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr style="height:22.7pt">
+            <td colspan="3" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:116.85pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:宋体; font-size:10.5pt">
+                        座落
+                    </span>
+                </p>
+            </td>
+            <td colspan="10" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:343.55pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:Calibri; font-size:10.5pt">
+                       @item.Qsxx.ZL
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr style="height:22.55pt">
+            <td colspan="3" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:116.85pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:宋体; font-size:10.5pt">
+                        登记时间
+                    </span>
+                </p>
+            </td>
+            <td colspan="3" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:74.25pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:Calibri; font-size:10.5pt">
+                        @item.Qsxx.DJRQStr
+                    </span>
+                </p>
+            </td>
+            <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:89.95pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:宋体; font-size:10.5pt">
+                        权属状态
+                    </span>
+                </p>
+            </td>
+            <td colspan="5" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:157.75pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:Calibri; font-size:10.5pt">
+                        @item.Qsxx.QSZT
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr style="height:22.7pt">
+            <td colspan="3" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:116.85pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:宋体; font-size:10.5pt">
+                        所有权人
+                    </span>
+                </p>
+            </td>
+            <td colspan="3" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:74.25pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:Calibri; font-size:10.5pt">
+                        @item.Qsxx.SYQR
+                    </span>
+                </p>
+            </td>
+            <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:89.95pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:宋体; font-size:10.5pt">
+                        证件号码
+                    </span>
+                </p>
+            </td>
+            <td colspan="5" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:157.75pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:Calibri; font-size:10.5pt">
+                        @item.Qsxx.ZJHM
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr style="height:22.7pt">
+            <td colspan="3" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:116.85pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:宋体; font-size:10.5pt">
+                        证件
+                    </span>
+                    <span style="font-family:宋体; font-size:10.5pt">
+                        种类
+                    </span>
+                </p>
+            </td>
+            <td colspan="3" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:74.25pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:Calibri; font-size:10.5pt">
+                        @item.Qsxx.ZJLX
+                    </span>
+                </p>
+            </td>
+            <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:89.95pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:宋体; font-size:10.5pt">
+                        不动产单元号
+                    </span>
+                </p>
+            </td>
+            <td colspan="5" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:157.75pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:Calibri; font-size:10.5pt">
+                        @item.Qsxx.BDCDYH
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr style="height:22.55pt">
+            <td colspan="3" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:116.85pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:宋体; font-size:10.5pt">
+                        共有情况
+                    </span>
+                </p>
+            </td>
+            <td colspan="3" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:74.25pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:Calibri; font-size:10.5pt">
+                        @item.Qsxx.GYQK
+                    </span>
+                </p>
+            </td>
+            <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:89.95pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:宋体; font-size:10.5pt">
+                        土地使用权面积（㎡）
+                    </span>
+                </p>
+            </td>
+            <td colspan="5" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:157.75pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:Calibri; font-size:10.5pt">
+                        @item.Qsxx.TDSYMJStr
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr style="height:22.7pt">
+            <td colspan="3" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:116.85pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:宋体; font-size:10.5pt">
+                        土地使用权人
+                    </span>
+                </p>
+            </td>
+            <td colspan="3" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:74.25pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:Calibri; font-size:10.5pt">
+                        @item.Qsxx.TDSYQR
+                    </span>
+                </p>
+            </td>
+            <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:89.95pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:宋体; font-size:10.5pt">
+                        土地权利类型
+                    </span>
+                </p>
+            </td>
+            <td colspan="5" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:157.75pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:Calibri; font-size:10.5pt">
+                        @item.Qsxx.TDQLLX
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr style="height:22.55pt">
+            <td colspan="3" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:116.85pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:宋体; font-size:10.5pt">
+                        土地用途
+                    </span>
+                </p>
+            </td>
+            <td colspan="3" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:74.25pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:Calibri; font-size:10.5pt">
+                        @item.Qsxx.TDYT
+                    </span>
+                </p>
+            </td>
+            <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:89.95pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:宋体; font-size:10.5pt">
+                        土地权利性质
+                    </span>
+                </p>
+            </td>
+            <td colspan="5" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:157.75pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:Calibri; font-size:10.5pt">
+                        @item.Qsxx.TDQLXZ
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr style="height:22.7pt">
+            <td colspan="3" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:116.85pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:宋体; font-size:10.5pt">
+                        土地使用期限（年）
+                    </span>
+                </p>
+            </td>
+            <td colspan="10" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:343.55pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:Calibri; font-size:10.5pt">
+                        @item.Qsxx.TDSYQX
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr style="height:22.55pt">
+            <td colspan="3" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:116.85pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:宋体; font-size:10.5pt">
+                        房屋用途
+                    </span>
+                </p>
+            </td>
+            <td colspan="3" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:74.25pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:Calibri; font-size:10.5pt">
+                        @item.Qsxx.FWYT
+                    </span>
+                </p>
+            </td>
+            <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:89.95pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:宋体; font-size:10.5pt">
+                        房屋性质
+                    </span>
+                </p>
+            </td>
+            <td colspan="5" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:157.75pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:Calibri; font-size:10.5pt">
+                        @item.Qsxx.FWXZ
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr style="height:22.7pt">
+            <td colspan="3" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:116.85pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:宋体; font-size:10.5pt">
+                        房屋结构
+                    </span>
+                </p>
+            </td>
+            <td colspan="3" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:74.25pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:Calibri; font-size:10.5pt">
+                        @item.Qsxx.FWJG
+                    </span>
+                </p>
+            </td>
+            <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:89.95pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:宋体; font-size:10.5pt">
+                        所在层
+                    </span>
+                    <span style="font-family:Calibri; font-size:10.5pt">
+                        /
+                    </span>
+                    <span style="font-family:宋体; font-size:10.5pt">
+                        总层数
+                    </span>
+                </p>
+            </td>
+            <td colspan="5" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:157.75pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:Calibri; font-size:10.5pt">
+                        @item.Qsxx.SZC/@item.Qsxx.ZCS
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr style="height:22.7pt">
+            <td colspan="3" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:116.85pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:宋体; font-size:10.5pt">
+                        建筑面积（㎡）
+                    </span>
+                </p>
+            </td>
+            <td colspan="3" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:74.25pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    
+                <span style="font-family:Calibri; font-size:10.5pt">
+                    @item.Qsxx.JZMJStr
+                </span>
+                    
+
+                </p>
+            </td>
+            <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:89.95pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:宋体; font-size:10.5pt">
+                        专有建筑面积（㎡）
+                    </span>
+                </p>
+            </td>
+            <td colspan="5" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:157.75pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+          
+                <span style="font-family:Calibri; font-size:10.5pt">
+                    @item.Qsxx.TNMJStr
+                </span>
+                </p>
+            </td>
+        </tr>
+        <tr style="height:22.7pt">
+            <td colspan="3" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:116.85pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:宋体; font-size:10.5pt">
+                        分摊建筑面积（㎡）
+                    </span>
+                </p>
+            </td>
+            <td colspan="3" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:74.25pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                 
+                <span style="font-family:Calibri; font-size:10.5pt">
+                    @item.Qsxx.FTJZMJStr
+                </span>
+                </p>
+            </td>
+            <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:89.95pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:宋体; font-size:10.5pt">
+                        竣工时间
+                    </span>
+                </p>
+            </td>
+            <td colspan="5" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:157.75pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:Calibri; font-size:10.5pt">
+                        @item.Qsxx.JGRQStr
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr style="height:22.7pt">
+            <td colspan="13" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:471.2pt">
+                <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                    <span style="font-family:宋体; font-size:10.5pt">
+                        抵押情况
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr style="height:22.7pt">
+            <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:53.05pt">
+                <p style="margin:0pt; orphans:0; text-align:justify; widows:0">
+                    <span style="font-family:宋体; font-size:10.5pt">
+                        抵押权人
+                    </span>
+                </p>
+            </td>
+            <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:74.25pt">
+                <p style="margin:0pt; orphans:0; text-align:justify; widows:0">
+                    <span style="font-family:宋体; font-size:10.5pt">
+                        不动产证明号
+                    </span>
+                </p>
+            </td>
+            <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:53pt">
+                <p style="margin:0pt; orphans:0; text-align:justify; widows:0">
+                    <span style="font-family:宋体; font-size:10.5pt">
+                        抵押方式
+                    </span>
+                </p>
+            </td>
+            <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:67.15pt">
+                <p style="margin:0pt; orphans:0; text-align:justify; widows:0">
+                    <span style="font-family:宋体; font-size:10.5pt">
+                        抵押范围
+                    </span>
+                </p>
+            </td>
+            <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:53pt">
+                <p style="margin:0pt; orphans:0; text-align:justify; widows:0">
+                    <span style="font-family:宋体; font-size:10.5pt">
+                        抵押金额
+                    </span>
+                </p>
+            </td>
+            <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:52.95pt">
+                <p style="margin:0pt; orphans:0; text-align:justify; widows:0">
+                    <span style="font-family:宋体; font-size:10.5pt">
+                        抵押期限
+                    </span>
+                </p>
+            </td>
+            <td  style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:53pt">
+                <p style="margin:0pt; orphans:0; text-align:justify; widows:0">
+                    <span style="font-family:宋体; font-size:10.5pt">
+                        登记日期
+                    </span>
+                </p>
+            </td>
+        </tr>
+        @foreach (Web4BDC.Models.JGCXModel.DJDY dy in item.DYXX)
+        {
+            <tr style="height:22.7pt">
+                <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt;padding-right:5.03pt;vertical-align:middle; width:53.05pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:Calibri; font-size:10.5pt">
+                            @dy.DYQR
+                        </span>
+
+                    </p>
+                </td>
+                <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:74.25pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:Calibri; font-size:10.5pt">
+                            @dy.BDCZMH
+                        </span>
+                    </p>
+                </td>
+                <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:53pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:Calibri; font-size:10.5pt">
+                            @dy.DYFS
+                        </span>
+                    </p>
+                </td>
+                <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:67.15pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:Calibri; font-size:10.5pt">
+                            
+                                @dy.DYFWStr
+                            
+                        </span>
+                    </p>
+                </td>
+                <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:53pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:Calibri; font-size:10.5pt">
+                            
+                                @dy.DYJEStr
+                            
+                        </span>
+                    </p>
+                </td>
+                <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:52.95pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:Calibri; font-size:10.5pt">
+                           @dy.DYQXStr
+                        </span>
+                    </p>
+                </td>
+                <td  style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:53pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:Calibri; font-size:10.5pt">
+                            @dy.DYRQStr
+                        </span>
+                    </p>
+                </td>
+            </tr>
+        }
+
+ <tr style="height:22.7pt">
+                    <td colspan="13" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:471.2pt">
+                        <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                            <span style="font-family:宋体; font-size:10.5pt">
+                                查封情况
+                            </span>
+                        </p>
+                    </td>
+                </tr>
+                <tr style="height:22.7pt">
+                    <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:45.95pt">
+                        <p style="margin:0pt; orphans:0; text-align:justify; widows:0">
+                            <span style="font-family:宋体; font-size:10.5pt">
+                                来文单位
+                            </span>
+                        </p>
+                    </td>
+                    <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:67.15pt">
+                        <p style="margin:0pt; orphans:0; text-align:justify; widows:0">
+                            <span style="font-family:宋体; font-size:10.5pt">
+                                查封冻结文号
+                            </span>
+                        </p>
+                    </td>
+                    <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:67.2pt">
+                        <p style="margin:0pt; orphans:0; text-align:justify; widows:0">
+                            <span style="font-family:宋体; font-size:10.5pt">
+                                查封冻结类型
+                            </span>
+                        </p>
+                    </td>
+                    <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:67.15pt">
+                        <p style="margin:0pt; orphans:0; text-align:justify; widows:0">
+                            <span style="font-family:宋体; font-size:10.5pt">
+                                查封冻结范围
+                            </span>
+                        </p>
+                    </td>
+                    <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:67.15pt">
+                        <p style="margin:0pt; orphans:0; text-align:justify; widows:0">
+                            <span style="font-family:宋体; font-size:10.5pt">
+                                查封冻结文件
+                            </span>
+                        </p>
+                    </td>
+                    <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:45.9pt">
+                        <p style="margin:0pt; orphans:0; text-align:justify; widows:0">
+                            <span style="font-family:宋体; font-size:10.5pt">
+                                查封期限
+                            </span>
+                        </p>
+                    </td>
+                    <td  style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:45.9pt">
+                        <p style="margin:0pt; orphans:0; text-align:justify; widows:0">
+                            <span style="font-family:宋体; font-size:10.5pt">
+                                登记日期
+                            </span>
+                        </p>
+                    </td>
+                </tr>
+        @foreach (Web4BDC.Models.JGCXModel.DJCF cf in item.CFXX)
+        {
+            <tr style="height:22.7pt">
+                <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:auto">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:Calibri; font-size:10.5pt">
+                            @cf.CFJG
+                        </span>
+
+                    </p>
+                </td>
+                <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:auto">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:Calibri; font-size:10.5pt">
+                            @cf.CFWH
+                        </span>
+                    </p>
+                </td>
+                <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:auto">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:Calibri; font-size:10.5pt">
+                            @cf.CFLX
+                        </span>
+                    </p>
+                </td>
+                <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:auto">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:Calibri; font-size:10.5pt">
+                            @cf.CFFW
+                        </span>
+                    </p>
+                </td>
+                <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:auto">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:Calibri; font-size:10.5pt">
+                            @cf.CFWJ
+                        </span>
+                    </p>
+                </td>
+                <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:45.9pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:Calibri; font-size:10.5pt">
+                            @cf.CFQX
+                        </span>
+                    </p>
+                </td>
+                <td colspan="2" style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:middle; width:45.9pt">
+                    <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+                        <span style="font-family:Calibri; font-size:10.5pt">
+                            @cf.CFRQStr
+                        </span>
+                    </p>
+                </td>
+            </tr>
+        }
+
+        <tr style="height:0pt">
+            <td style="width:56.75pt; border:none"></td>
+            <td style="width:7.1pt; border:none"></td>
+            <td style="width:63.8pt; border:none"></td>
+            <td style="width:7.05pt; border:none"></td>
+            <td style="width:14.2pt; border:none"></td>
+            <td style="width:63.8pt; border:none"></td>
+            <td style="width:77.95pt; border:none"></td>
+            <td style="width:22.8pt; border:none"></td>
+            <td style="width:41pt; border:none"></td>
+            <td style="width:14.15pt; border:none"></td>
+            <td style="width:49.6pt; border:none"></td>
+            <td style="width:7.1pt; border:none"></td>
+            <td style="width:56.7pt; border:none"></td>
+        </tr>
+    </table>
+</div>
+}

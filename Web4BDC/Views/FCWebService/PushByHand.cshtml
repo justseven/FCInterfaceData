@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "PushByHand";
+}
+
+<h2>手动推送</h2>
+
+
+<select id="PushType">
+    <option value="Seal">查封推送</option>
+    <option value="Unseal">解封推送</option>
+    <option value="Advance">预告推送</option>
+    <option value="UnAdvance">预告注销推送</option>
+    <option value="Mortage">抵押推送</option>
+    <option value="UnMortage">抵押注销推送</option>
+    <option value="IniCert">首次推送</option>
+</select>
+
+<input id="SLBH" type="text"/>
+<input id="Do" type="button"/>
+@section script
+{
+    <script type="text/javascript">
+        $(function () {
+            $('#Do').click(function () {
+                var pushType = $("#PushType").val();
+                var slbh = $("#SLBH").val();
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("PushByHand")',
+                    data: { SLBH: slbh, PUSHTYPE: pushType },
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data) {
+                            if(data=="1")
+                                alert("推送成功,且被接受！");
+                            else if (data == "2")
+                                alert("推送成功,但未被接受！");
+                            else {
+                                alert(data);
+                            }
+                        }
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        art.dialog({
+                            content: "获取数据异常，异常信息:[" + XMLHttpRequest.responseText + "]"
+                        });
+                    }
+                });
+            });
+        });
+    
+    </script>
+}

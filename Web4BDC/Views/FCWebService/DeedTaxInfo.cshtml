@@ -1,0 +1,611 @@
+﻿<style type="text/css" media="print">
+@Page { size: landscape; }
+</style>
+<div class="easyui-layout" style="width:770px;height:650px;margin:auto">
+    <div id="DeedTaxInfowin" data-options="region:'north',title:'契税查询',split:true" style="width:100%;height:100px">
+        条形码编号：<input id="txm" type="text" style="width:250px" />
+        <input id="Search" class="easyui-linkbutton" type="button" value="查找" />
+        <input type="button" class="easyui-linkbutton" value="打印" id="printBtn" />
+        <input type="button" class="easyui-linkbutton" value="保存图片" id="SaveImgBtn"/>
+        <input id="SLBH" value="@ViewData["SLBH"]" type="text" disabled />
+        
+    </div>
+    <div id="DeedTaxInfowin" style="width:50%;height:400px" data-options="region:'center',title:'查询结果',split:true">
+        <div id="tt" class="easyui-tabs" style="width:700px;height:250px;">
+            <div title="契税信息" style="padding:20px;">
+                <div id="QS" class="printDiv" style="text-align:center;">
+                    <table id="QSInfo" class="CommonTable" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th colspan="9" style="text-align:center;font-size:30px;">徐州市不动产交易税收交款凭证</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td width="90">填发日期</td>
+                                <td id="QSTFRQ" colspan="4"></td>
+                                <td colspan="2">电子税票号码：</td>
+                                <td id="QSSPHM" colspan="2"></td>
+                            </tr>
+                            <tr>
+                                <td>纳税人识别号</td>
+                                <td id="QSNSRSBH" colspan="3"></td>
+                                <td width="70">纳税人名称</td>
+                                <td id="QSNSRMC" colspan="4"></td>
+                            </tr>
+                            <tr>
+                                <td width="90">土地、房屋地址</td>
+                                <td id="QSDZ" colspan="4"></td>
+                                <td width="65px">成交面积</td>
+                                <td id="QSCJMJ" width="65px"></td>
+                                <td width="75px">权属转移用途</td>
+                                <td id="QSQSZYYT" width="65px"></td>
+                            </tr>
+                            <tr>
+                                <td>税种</td>
+                                <td colspan="2">品目名称</td>
+                                <td>计税金额</td>
+                                <td>税率</td>
+                                <td colspan="2">合同日期</td>
+                                <td>减免税额</td>
+                                <td>实缴金额</td>
+                            </tr>
+                            <tr style="height:25px" class="QSTM">
+                                <td></td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr style="height:25px" class="QSTM">
+                                <td></td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr style="height:25px" class="QSTM">
+                                <td></td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr style="height:25px" class="QSTM">
+                                <td></td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr style="height:25px" class="QSTM">
+                                <td></td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>合计金额</td>
+
+                                <td colspan="8">（大写）<span id="QSHJJE"></span></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" width="180">税务机关</td>
+                                <td colspan="2" width="180">填票人</td>
+                                <td colspan="5">备注</td>
+                            </tr>
+                            <tr style="height:155px">
+                                <td colspan="2"><img src="~/Content/images/套章.png" width="150" height="140" style="position:absolute;top:200px"></td>
+                                <td colspan="2" id="QSTPR"></td>
+                                <td colspan="5" align="center"><span id="barcode"></span></td>
+                            </tr>
+                            <tr><td colspan="9">注：改房产的缴纳电子信息已通过系统传递至不动产发证环节进行前置校验，办证时请主动出示本税收凭证，领证后由本人妥善保存。</td></tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+                <div title="契税减免税" style="padding:20px;">
+                    <div id="MZ" class="printDiv" style="text-align:center;">
+                        <div style="width:660px;margin:auto;">
+                            <h2 style="font-size:30px;text-align:center;">契税减免税核定通知书</h2>
+                            <p style="font-size:18px;text-align:right;">文书号：<span id="MZWSH"></span></p>
+                            <p style="font-size:18px">(减免申请人)：<span id="MZSQR"></span></p>
+                            <p style="font-size:18px">
+                                根据契税减免税政策相关规定，经税务机关审核，核准减免契税
+                                （小写）：<span id="MZJMSJE" style="text-decoration:underline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>元。
+                                实际应征契税（小写）<span id="MZYZSJE" style="text-decoration:underline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>元，
+                                （大写）：<span id="MZYZSJEDX" style="text-decoration:underline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>，具体减免情况见下表：
+                            </p>
+                        </div>
+                        <table id="MZInfo" class="CommonTable" cellspacing="0">
+                            <tr>
+                                <td width="166px">权属转移类型</td>
+                                <td id="MZQSZYLX" width="330px"></td>
+                                <td width="70px">减免类型</td>
+                                <td id="MZJMLX" width="70px"></td>
+                            </tr>
+                            <tr>
+                                <td>房产、土地坐落地址</td>
+                                <td id="MZZL"></td>
+                                <td>面积</td>
+                                <td id="MZMJ"></td>
+                            </tr>
+                            <tr>
+                                <td>权属转移时间</td>
+                                <td id="MZZYSJ"></td>
+                                <td>成交价格</td>
+                                <td id="MZCJJG"></td>
+                            </tr>
+                            <tr>
+                                <td>计税价格</td>
+                                <td id="MZJSJG"></td>
+                                <td>计征税额</td>
+                                <td id="MZJZSE"></td>
+                            </tr>
+                            <tr>
+                                <td>减免税额</td>
+                                <td id="MZJMSE"></td>
+                                <td colspan="2"></td>
+
+                            </tr>
+                            <tr>
+                                <td colspan="4">
+                                    应征税额（应纳税额-减免税额）：<span id="MZYZSE" style="text-decoration:underline">&nbsp;&nbsp;&nbsp;&nbsp;</span>元
+                                </td>
+                            </tr>
+                        </table>
+                        <p style="text-align:right;padding-right:80px">税务机关（盖章）<br /><img src="~/Content/images/套章.png" width="150" height="140" style="position:absolute;top:350px;right:50px"></p>
+                        <p style="text-align:right"><span id="MZRQ"></span></p>
+                    </div>
+                </div>
+                <div title="不征证明" style="padding:20px;">
+                    <div id="BZ" class="printDiv" style="text-align:center;">
+
+                        <table id="BZInfo" class="CommonTable" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th colspan="6" style="text-align:center;font-size:30px;border:0">契税不征证明</th>
+                                </tr>
+                                <tr>
+                                    <th style="border:0">填发日期</th>
+                                    <th id="BZTFRQ" colspan="2" style="border:0"></th>
+                                    <th style="border:0">文书号</th>
+                                    <th id="BZWSH" colspan="2" style="border:0"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>承受方名称</td>
+                                    <td id="BZCSFMC" colspan="3"></td>
+                                    <td>联系电话</td>
+                                    <td id="BZLXDH"></td>
+                                </tr>
+                                <tr>
+                                    <td>原产权人名称</td>
+                                    <td id="BZYCQRMC" colspan="5"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="6">
+                                        根据《中华人民共和国契税暂行条例》及有关政策规定，你（单位）在承受土地、房屋产权过程中，因下列原因，不需要缴纳契税
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="100px">不征原因</td>
+                                    <td id="BZYY" width="150px"></td>
+                                    <td width="55px">房屋/土地</td>
+                                    <td id="BZFWORTD" width="150px"></td>
+                                    <td width="55px">权属面积（m&sup2;）</td>
+                                    <td id="BZQSMJ" width="150px"></td>
+                                </tr>
+                                <tr>
+                                    <td>承受土地、房屋地址</td>
+                                    <td id="BZCSDZ" colspan="5"></td>
+                                </tr>
+                                <tr><td colspan="6">特此证明</td></tr>
+                                <tr style="height:150px">
+                                    <td colspan="3">
+                                        <span>征收机关（盖章）</span><br /><img src="~/Content/images/套章.png" width="150" height="140" style="position:absolute;top:200px"><br />
+                                        受理人：<span id="BZSLR"></span>
+                                    </td>
+                                    <td colspan="3">备注：<span id="barcode"></span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+
+    <div id="DeedTaxInfoPic" style="width:50%;height:400px" data-options="region:'center',title:'图片结果',split:true">
+        <div id="pictt" class="easyui-tabs" style="width:700px;height:250px;">
+            <div title="完税证明" style="padding:20px;">
+                <div id="WS" class="printDiv" style="text-align:center;">
+                
+                </div>
+            </div>
+
+            <div title="不征证明" style="padding:20px;">
+                <div id="BZZM" class="printDiv" style="text-align:center;">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section style{
+    <link href="~/Content/PrintTable.css" rel="stylesheet" type="text/css" />
+}
+@section script
+{
+<script type="text/javascript" src="~/Scripts/jquery.jqprint-0.3.js"></script>
+<script type="text/javascript" src="~/Scripts/bluebird.js"></script>
+<script type="text/javascript" src="~/Scripts/html2canvas.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var slbh = $("#SLBH").val();
+            if (slbh) {
+                GetDataBySLBH(slbh);
+            }
+            $("#Search").click(function () {
+                var txm = $("#txm").val();
+                if (!txm || txm.length == 0) {
+                    alert("请输入条形码");
+                    return;
+                }
+                GetDataByTXM(txm, slbh);
+            });
+            $("#printBtn").click(function () {
+                print();
+            });
+            $("#SaveImgBtn").click(function () {
+                if (slbh) {
+                    cutDiv("QS");
+
+                }
+                else
+                {
+                    art.dialog({
+                        content: "无法获取受理编号，无法保存"
+                    });
+                    return;
+                }
+
+            });
+            ShowBarCode();
+        });
+
+        function print() {
+            var qsTab = $('#tt').tabs('getTab', "契税信息").panel("options").tab;
+            if (!$(qsTab).hasClass("tabs-disabled"))
+                $("#QS").jqprint({
+                    debug: false,//如果是true则可以显示iframe查看效果（iframe默认高和宽都很小，可以再源码中调大），默认是false
+                    importCSS: true, //true表示引进原来的页面的css，默认是true。（如果是true，先会找$("link[media=print]")，若没有会去找$("link")中的css文件）
+                    printContainer: true,//表示如果原来选择的对象必须被纳入打印（注意：设置为false可能会打破你的CSS规则）。
+                    operaSupport: true//表示如果插件也必须支持歌opera浏览器，在这种情况下，它提供了建立一个临时的打印选项卡。默认是true});
+                });
+            var msTab = $('#tt').tabs('getTab', "契税减免税").panel("options").tab;
+            if (!$(msTab).hasClass("tabs-disabled"))
+                $("#MZ").jqprint({
+                    debug: false,//如果是true则可以显示iframe查看效果（iframe默认高和宽都很小，可以再源码中调大），默认是false
+                    importCSS: true, //true表示引进原来的页面的css，默认是true。（如果是true，先会找$("link[media=print]")，若没有会去找$("link")中的css文件）
+                    printContainer: true,//表示如果原来选择的对象必须被纳入打印（注意：设置为false可能会打破你的CSS规则）。
+                    operaSupport: true//表示如果插件也必须支持歌opera浏览器，在这种情况下，它提供了建立一个临时的打印选项卡。默认是true});
+                });
+            var bzTab = $('#tt').tabs('getTab', "不征证明").panel("options").tab;
+            if (!$(bzTab).hasClass("tabs-disabled"))
+                $("#BZ").jqprint({
+                    debug: false,//如果是true则可以显示iframe查看效果（iframe默认高和宽都很小，可以再源码中调大），默认是false
+                    importCSS: true, //true表示引进原来的页面的css，默认是true。（如果是true，先会找$("link[media=print]")，若没有会去找$("link")中的css文件）
+                    printContainer: true,//表示如果原来选择的对象必须被纳入打印（注意：设置为false可能会打破你的CSS规则）。
+                    operaSupport: true//表示如果插件也必须支持歌opera浏览器，在这种情况下，它提供了建立一个临时的打印选项卡。默认是true});
+                });
+        }
+        function GetDataByTXM(txm,slbh,ry_id) {
+            $.ajax({
+                url: '@Url.Action("GetDeedTaskInfo")' + '/?txm=' + txm + '&ry_id=ry_id'+"&slbh="+slbh,
+                type: 'POST',
+                success: function (data) {
+                    ShowTaxData(data);
+                }
+            });
+
+        }
+
+        function PushQSPicToBdc(base64str,slbh)
+        {
+
+        }
+
+
+        function GetDataBySLBH(slbh) {
+            $.ajax({
+                url: '@Url.Action("GetDeedTaskBySLBH")' + '/?SLBH=' + slbh,
+                type: 'POST',
+                async: false,
+                success: function (data) {
+                    if (data && data.TaxXML)
+                        ShowTaxData(data.TaxXML);
+                    if (data && data.TXM)
+                        $("#txm").val(data.TXM);
+                }
+            });
+        }
+
+        function ShowBarCode() {
+            var txm = $("#txm").val();
+            if (!txm || txm.length == 0) {
+                alert("请输入条形码");
+                return;
+            }
+            else {
+                $("#barcode").html("");
+
+                var imgStr = "<div><img src='../FCWebService/GetBarCodeImg?txm=" + txm + "'/></div>";
+
+
+                $("#barcode").append(imgStr);
+            }
+        }
+
+        function ShowTaxData(data) {
+            ResetShowTaxData();
+            if (data) {
+                if (data.houseList && data.houseList.BZZM && data.houseList.BZZM.BZ_BJ != "0") {
+                    var bzTab = $("#tt").tabs("getTab", "不征证明");
+                    $("#tt").tabs("enableTab", "不征证明");
+                    $("#tt").tabs("select", "不征证明");
+                    $("#BZWSH").html(data.houseList.BZZM.BZ_WSH.replace("null", ""));
+                    $("#BZTFRQ").html(data.houseList.BZZM.BZ_SJ.replace("null", ""));
+                    $("#BZCSFMC").html(data.houseList.BZZM.BZ_MC.replace("null", ""));
+                    $("#BZLXDH").html(data.houseList.BZZM.BZ_DH.replace("null", ""));
+                    $("#BZYCQRMC").html(data.houseList.BZZM.BZ_YCQR.replace("null", ""));
+                    $("#BZYY").html(data.houseList.BZZM.BZ_YY.replace("null", ""));
+                    $("#BZFWORTD").html(data.houseList.BZZM.BZ_LX.replace("null", ""));
+                    $("#BZQSMJ").html(data.houseList.BZZM.BZ_MJ.replace("null", ""));
+                    $("#BZCSDZ").html(data.houseList.BZZM.BZ_DZ.replace("null", ""));
+                    $("#BZSLR").html(data.houseList.BZZM.BZ_SLR.replace("null", ""));
+                    $("#BZBZ").html(data.houseList.BZZM.BZ_BZXX.replace("null", ""));
+                }
+                if (data.houseList && data.houseList.MZZM && data.houseList.MZZM.MZ_BJ != "0") {
+                    $("#tt").tabs("enableTab", "契税减免税");
+                    $("#tt").tabs("select", "契税减免税");
+                    $("#MZWSH").html(data.houseList.MZZM.MZ_WSH.replace("null", ""));
+                    $("#MZJMSJE").html(data.houseList.MZZM.MZ_QSJE.replace("null", ""));
+                    $("#MZYZSJE").html(data.houseList.MZZM.MZ_SZJE.replace("null", ""));
+                    $("#MZQSZYLX").html(data.houseList.MZZM.MZ_ZYLX.replace("null", ""));
+                    $("#MZJMLX").html(data.houseList.MZZM.MZ_JMLX.replace("null", ""));
+                    $("#MZZL").html(data.houseList.MZZM.MZ_DZ.replace("null", ""));
+                    $("#MZMJ").html(data.houseList.MZZM.MZ_MJ.replace("null", ""));
+                    $("#MZZYSJ").html(data.houseList.MZZM.MZ_ZYSJ.replace("null", ""));
+                    $("#MZCJJG").html(data.houseList.MZZM.MZ_CJJG.replace("null", ""));
+                    $("#MZJSJG").html(data.houseList.MZZM.MZ_JSJG.replace("null", ""));
+                    $("#MZJZSE").html(data.houseList.MZZM.MZ_JZJG.replace("null", ""));
+                    $("#MZRQ").html(data.houseList.MZZM.MZ_DYSJ.replace("null", ""));
+                }
+                if (data.houseList && data.houseList.QSXXs && data.houseList.QSXXs.length > 0) {
+                    $("#tt").tabs("enableTab", "契税信息");
+                    $("#tt").tabs("select", "契税信息");
+                    $("#QSTFRQ").html(data.houseList.QSXXs[0].QS_FZSJ.replace("null", ""));
+                    $("#QSSPHM").html(data.houseList.QSXXs[0].QS_XQH.replace("null", ""));
+                    $("#QSNSRSBH").html(data.houseList.QSXXs[0].QS_NSRSBM.replace("null", ""));
+                    $("#QSNSRMC").html(data.houseList.QSXXs[0].QS_MC.replace("null", ""));
+                    $("#QSDZ").html(data.houseList.QSXXs[0].QS_DZ.replace("null", ""));
+                    $("#QSCJMJ").html(data.houseList.QSXXs[0].QS_MJ.replace("null", ""));
+                    $("#QSQSZYYT").html(data.houseList.QSXXs[0].QS_YT.replace("null", ""));
+
+                    $("#QSTPR").html(data.houseList.QSXXs[0].QS_TPR.replace("null", ""));
+                    $("#QSBZ").html(data.houseList.QSXXs[0].QS_BZ.replace("null", ""));
+                    var sjje = 0;
+                    var tms = $("#QSInfo").find(".QSTM");
+                    if (data.houseList.QSXXs[0]) {
+                        var tds = $(tms[0]).find("td");
+                        $(tds[0]).html(data.houseList.QSXXs[0].QS_ZSXM.replace("null", ""));
+                        $(tds[1]).html(data.houseList.QSXXs[0].QS_ZSPM.replace("null", ""));
+                        $(tds[2]).html(data.houseList.QSXXs[0].QS_JSYJ.replace("null", ""));
+                        $(tds[3]).html(data.houseList.QSXXs[0].QS_SL.replace("null", ""));
+                        $(tds[4]).html(data.houseList.QSXXs[0].QS_SSQQ.replace("null", ""));
+                        $(tds[5]).html(data.houseList.QSXXs[0].QS_JM.replace("null", ""));
+                        $(tds[6]).html(data.houseList.QSXXs[0].QS_SJJE.replace("null", ""));
+                        sjje += parseFloat(data.houseList.QSXXs[0].QS_SJJE);
+                    }
+                    if (data.houseList.QSXXs[1]) {
+                        var tds = $(tms[1]).find("td");
+                        $(tds[0]).html(data.houseList.QSXXs[1].QS_ZSXM.replace("null", ""));
+                        $(tds[1]).html(data.houseList.QSXXs[1].QS_ZSPM.replace("null", ""));
+                        $(tds[2]).html(data.houseList.QSXXs[1].QS_JSYJ.replace("null", ""));
+                        $(tds[3]).html(data.houseList.QSXXs[1].QS_SL.replace("null", ""));
+                        $(tds[4]).html(data.houseList.QSXXs[1].QS_SSQQ.replace("null", ""));
+                        $(tds[5]).html(data.houseList.QSXXs[1].QS_JM.replace("null", ""));
+                        $(tds[6]).html(data.houseList.QSXXs[1].QS_SJJE.replace("null", ""));
+                        sjje += parseFloat(data.houseList.QSXXs[1].QS_SJJE);
+                    }
+                    if (data.houseList.QSXXs[2]) {
+                        var tds = $(tms[2]).find("td");
+                        $(tds[0]).html(data.houseList.QSXXs[2].QS_ZSXM.replace("null", ""));
+                        $(tds[1]).html(data.houseList.QSXXs[2].QS_ZSPM.replace("null", ""));
+                        $(tds[2]).html(data.houseList.QSXXs[2].QS_JSYJ.replace("null", ""));
+                        $(tds[3]).html(data.houseList.QSXXs[2].QS_SL.replace("null", ""));
+                        $(tds[4]).html(data.houseList.QSXXs[2].QS_SSQQ.replace("null", ""));
+                        $(tds[5]).html(data.houseList.QSXXs[2].QS_JM.replace("null", ""));
+                        $(tds[6]).html(data.houseList.QSXXs[2].QS_SJJE.replace("null", ""));
+                        sjje += parseFloat(data.houseList.QSXXs[2].QS_SJJE);
+                    }
+                    if (data.houseList.QSXXs[3]) {
+                        var tds = $(tms[3]).find("td");
+                        $(tds[0]).html(data.houseList.QSXXs[3].QS_ZSXM.replace("null", ""));
+                        $(tds[1]).html(data.houseList.QSXXs[3].QS_ZSPM.replace("null", ""));
+                        $(tds[2]).html(data.houseList.QSXXs[3].QS_JSYJ.replace("null", ""));
+                        $(tds[3]).html(data.houseList.QSXXs[3].QS_SL.replace("null", ""));
+                        $(tds[4]).html(data.houseList.QSXXs[3].QS_SSQQ.replace("null", ""));
+                        $(tds[5]).html(data.houseList.QSXXs[3].QS_JM.replace("null", ""));
+                        $(tds[6]).html(data.houseList.QSXXs[3].QS_SJJE.replace("null", ""));
+                        sjje += parseFloat(data.houseList.QSXXs[3].QS_SJJE);
+                    }
+                    if (data.houseList.QSXXs[4]) {
+                        var tds = $(tms[4]).find("td");
+                        $(tds[0]).html(data.houseList.QSXXs[4].QS_ZSXM.replace("null", ""));
+                        $(tds[1]).html(data.houseList.QSXXs[4].QS_ZSPM.replace("null", ""));
+                        $(tds[2]).html(data.houseList.QSXXs[4].QS_JSYJ.replace("null", ""));
+                        $(tds[3]).html(data.houseList.QSXXs[4].QS_SL.replace("null", ""));
+                        $(tds[4]).html(data.houseList.QSXXs[4].QS_SSQQ.replace("null", ""));
+                        $(tds[5]).html(data.houseList.QSXXs[4].QS_JM.replace("null", ""));
+                        $(tds[6]).html(data.houseList.QSXXs[4].QS_SJJE.replace("null", ""));
+                        sjje += parseFloat(data.houseList.QSXXs[4].QS_SJJE);
+                    }
+                    $("#QSHJJE").html(numToCny(sjje));
+                }
+            }
+        }
+
+        function ResetShowTaxData() {
+            $("#tt").tabs("disableTab", "契税信息");
+            $("#tt").tabs("disableTab", "契税减免税");
+            $("#tt").tabs("disableTab", "不征证明");
+            $("#BZWSH").html("");
+            $("#BZTFRQ").html("");
+            $("#BZCSFMC").html("");
+            $("#BZLXDH").html("");
+            $("#BZYCQRMC").html("");
+            $("#BZYY").html("");
+            $("#BZFWORTD").html("");
+            $("#BZQSMJ").html("");
+            $("#BZCSDZ").html("");
+            $("#BZSLR").html("");
+            $("#BZBZ").html("");
+            $("#MZWSH").html("");
+            $("#MZJMSJE").html("");
+            $("#MZYZSJE").html("");
+            $("#MZQSZYLX").html("");
+            $("#MZJMLX").html("");
+            $("#MZZL").html("");
+            $("#MZMJ").html("");
+            $("#MZZYSJ").html("");
+            $("#MZCJJG").html("");
+            $("#MZJSJG").html("");
+            $("#MZJZSE").html("");
+            $("#MZRQ").html("");
+            $("#QSTFRQ").html("");
+            $("#QSSPHM").html("");
+            $("#QSNSRSBH").html("");
+            $("#QSNSRMC").html("");
+            $("#QSDZ").html("");
+            $("#QSCJMJ").html("");
+            $("#QSQSZYYT").html("");
+
+            $("#QSTPR").html("");
+            $("#QSBZ").html("");
+            var tms = $("#QSInfo").find(".QSTM");
+
+            var tds = $(tms[0]).find("td");
+            $(tds[0]).html("");
+            $(tds[1]).html("");
+            $(tds[2]).html("");
+            $(tds[3]).html("");
+            $(tds[4]).html("");
+            $(tds[5]).html("");
+            $(tds[6]).html("");
+            var tds = $(tms[1]).find("td");
+            $(tds[0]).html("");
+            $(tds[1]).html("");
+            $(tds[2]).html("");
+            $(tds[3]).html("");
+            $(tds[4]).html("");
+            $(tds[5]).html("");
+            $(tds[6]).html("");
+            var tds = $(tms[2]).find("td");
+            $(tds[0]).html("");
+            $(tds[1]).html("");
+            $(tds[2]).html("");
+            $(tds[3]).html("");
+            $(tds[4]).html("");
+            $(tds[5]).html("");
+            $(tds[6]).html("");
+            var tds = $(tms[3]).find("td");
+            $(tds[0]).html("");
+            $(tds[1]).html("");
+            $(tds[2]).html("");
+            $(tds[3]).html("");
+            $(tds[4]).html("");
+            $(tds[5]).html("");
+            $(tds[6]).html("");
+            var tds = $(tms[4]).find("td");
+            $(tds[0]).html("");
+            $(tds[1]).html("");
+            $(tds[2]).html("");
+            $(tds[3]).html("");
+            $(tds[4]).html("");
+            $(tds[5]).html("");
+            $(tds[6]).html("");
+            $("#QSHJJE").html("");
+        }
+
+        function numToCny(num) {
+            var strOutput = "";
+            var strUnit = '仟佰拾亿仟佰拾万仟佰拾元角分';
+            num += "00";
+            var intPos = num.indexOf('.');
+            if (intPos >= 0)
+                num = num.substring(0, intPos) + num.substr(intPos + 1, 2);
+            strUnit = strUnit.substr(strUnit.length - num.length);
+            for (var i = 0; i < num.length; i++)
+                strOutput += '零壹贰叁肆伍陆柒捌玖'.substr(num.substr(i, 1), 1) + strUnit.substr(i, 1);
+            return strOutput.replace(/零角零分$/, '整').replace(/零[仟佰拾]/g, '零').replace(/零{2,}/g, '零').replace(/零([亿|万])/g, '$1').replace(/零+元/, '元').replace(/亿零{0,3}万/, '亿').replace(/^元/, "零元");
+        }
+
+
+        function cutDiv(divID) {
+
+            var canvas = document.createElement("canvas");
+            canvas.width = window.screen.width * 2;
+            canvas.height = window.screen.height * 2;
+
+            var context = canvas.getContext("2d");
+            context.scale(2, 2);
+
+            var htmlDiv = document.getElementById(divID);
+            var myImage = "";
+            html2canvas(htmlDiv , {
+                canvas: canvas,
+                onrendered: function (canvas) {
+                    myImage = canvas.toDataURL("image/png");
+                    var slbh = $("#SLBH").val();
+                    $.ajax({
+                        url: '@Url.Action("ImportQSPic")' ,//+ '/?baseb4Str=' + base64str + '&SLBH=' + slbh,
+                        type: 'POST',
+                        data: { baseb4Str: myImage, slbh: slbh },
+                        timeout: 60000, 
+                        success: function (data) {
+                            if (data.IsSuccess) {
+                                art.dialog({
+                                    content: "无法获取受理编号，无法保存"
+                                });
+                            }
+                            else {
+                                art.dialog({
+                                    content: "无法获取受理编号，无法保存"
+                                });
+                            }
+
+                        }
+                    });
+                }
+            });
+
+        }
+
+    </script>
+}

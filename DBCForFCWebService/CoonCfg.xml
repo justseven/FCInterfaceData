@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Dbbase>
+	<DBNodeName>
+	<CoonName>oracleConnection</CoonName>
+	<CoonValue>属性数据</CoonValue>
+	</DBNodeName>
+  
+	<DBNodeName>
+	<CoonName>bdcsxkConnection</CoonName>
+	<CoonValue>属性数据</CoonValue>
+	</DBNodeName>
+	
+	<DBNodeName>
+	<CoonName>bdcggkConnection</CoonName>
+	<CoonValue>公共数据</CoonValue>
+	</DBNodeName>
+
+	<DBNodeName>
+	<CoonName>bdcwdkConnection</CoonName>
+	<CoonValue>文档数据</CoonValue>
+	</DBNodeName>
+  
+</Dbbase>

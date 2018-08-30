@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FC_CLF_ZTXX">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="syqr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="qzbh" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FC_CLF_ZTXXResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FC_CLF_ZTXXResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FC_CLF_YZXX">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ywzh" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FC_CLF_YZXXResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FC_CLF_YZXXResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FC_CLF_FZXX">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ywzh" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FC_CLF_FZXXResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FC_CLF_FZXXResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="DataSet" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:element ref="s:schema" />
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="FC_CLF_ZTXXSoapIn">
+    <wsdl:part name="parameters" element="tns:FC_CLF_ZTXX" />
+  </wsdl:message>
+  <wsdl:message name="FC_CLF_ZTXXSoapOut">
+    <wsdl:part name="parameters" element="tns:FC_CLF_ZTXXResponse" />
+  </wsdl:message>
+  <wsdl:message name="FC_CLF_YZXXSoapIn">
+    <wsdl:part name="parameters" element="tns:FC_CLF_YZXX" />
+  </wsdl:message>
+  <wsdl:message name="FC_CLF_YZXXSoapOut">
+    <wsdl:part name="parameters" element="tns:FC_CLF_YZXXResponse" />
+  </wsdl:message>
+  <wsdl:message name="FC_CLF_FZXXSoapIn">
+    <wsdl:part name="parameters" element="tns:FC_CLF_FZXX" />
+  </wsdl:message>
+  <wsdl:message name="FC_CLF_FZXXSoapOut">
+    <wsdl:part name="parameters" element="tns:FC_CLF_FZXXResponse" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpGetIn" />
+  <wsdl:message name="HelloWorldHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="FC_CLF_ZTXXHttpGetIn">
+    <wsdl:part name="syqr" type="s:string" />
+    <wsdl:part name="qzbh" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FC_CLF_ZTXXHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="FC_CLF_YZXXHttpGetIn">
+    <wsdl:part name="ywzh" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FC_CLF_YZXXHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="FC_CLF_FZXXHttpGetIn">
+    <wsdl:part name="ywzh" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FC_CLF_FZXXHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpPostIn" />
+  <wsdl:message name="HelloWorldHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="FC_CLF_ZTXXHttpPostIn">
+    <wsdl:part name="syqr" type="s:string" />
+    <wsdl:part name="qzbh" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FC_CLF_ZTXXHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="FC_CLF_YZXXHttpPostIn">
+    <wsdl:part name="ywzh" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FC_CLF_YZXXHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="FC_CLF_FZXXHttpPostIn">
+    <wsdl:part name="ywzh" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FC_CLF_FZXXHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:portType name="Bdc2Fc_CLFSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FC_CLF_ZTXX">
+      <wsdl:input message="tns:FC_CLF_ZTXXSoapIn" />
+      <wsdl:output message="tns:FC_CLF_ZTXXSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FC_CLF_YZXX">
+      <wsdl:input message="tns:FC_CLF_YZXXSoapIn" />
+      <wsdl:output message="tns:FC_CLF_YZXXSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FC_CLF_FZXX">
+      <wsdl:input message="tns:FC_CLF_FZXXSoapIn" />
+      <wsdl:output message="tns:FC_CLF_FZXXSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="Bdc2Fc_CLFHttpGet">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldHttpGetIn" />
+      <wsdl:output message="tns:HelloWorldHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FC_CLF_ZTXX">
+      <wsdl:input message="tns:FC_CLF_ZTXXHttpGetIn" />
+      <wsdl:output message="tns:FC_CLF_ZTXXHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FC_CLF_YZXX">
+      <wsdl:input message="tns:FC_CLF_YZXXHttpGetIn" />
+      <wsdl:output message="tns:FC_CLF_YZXXHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FC_CLF_FZXX">
+      <wsdl:input message="tns:FC_CLF_FZXXHttpGetIn" />
+      <wsdl:output message="tns:FC_CLF_FZXXHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="Bdc2Fc_CLFHttpPost">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldHttpPostIn" />
+      <wsdl:output message="tns:HelloWorldHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FC_CLF_ZTXX">
+      <wsdl:input message="tns:FC_CLF_ZTXXHttpPostIn" />
+      <wsdl:output message="tns:FC_CLF_ZTXXHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FC_CLF_YZXX">
+      <wsdl:input message="tns:FC_CLF_YZXXHttpPostIn" />
+      <wsdl:output message="tns:FC_CLF_YZXXHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FC_CLF_FZXX">
+      <wsdl:input message="tns:FC_CLF_FZXXHttpPostIn" />
+      <wsdl:output message="tns:FC_CLF_FZXXHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Bdc2Fc_CLFSoap" type="tns:Bdc2Fc_CLFSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FC_CLF_ZTXX">
+      <soap:operation soapAction="http://tempuri.org/FC_CLF_ZTXX" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FC_CLF_YZXX">
+      <soap:operation soapAction="http://tempuri.org/FC_CLF_YZXX" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FC_CLF_FZXX">
+      <soap:operation soapAction="http://tempuri.org/FC_CLF_FZXX" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Bdc2Fc_CLFSoap12" type="tns:Bdc2Fc_CLFSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FC_CLF_ZTXX">
+      <soap12:operation soapAction="http://tempuri.org/FC_CLF_ZTXX" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FC_CLF_YZXX">
+      <soap12:operation soapAction="http://tempuri.org/FC_CLF_YZXX" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FC_CLF_FZXX">
+      <soap12:operation soapAction="http://tempuri.org/FC_CLF_FZXX" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Bdc2Fc_CLFHttpGet" type="tns:Bdc2Fc_CLFHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FC_CLF_ZTXX">
+      <http:operation location="/FC_CLF_ZTXX" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FC_CLF_YZXX">
+      <http:operation location="/FC_CLF_YZXX" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FC_CLF_FZXX">
+      <http:operation location="/FC_CLF_FZXX" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Bdc2Fc_CLFHttpPost" type="tns:Bdc2Fc_CLFHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FC_CLF_ZTXX">
+      <http:operation location="/FC_CLF_ZTXX" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FC_CLF_YZXX">
+      <http:operation location="/FC_CLF_YZXX" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FC_CLF_FZXX">
+      <http:operation location="/FC_CLF_FZXX" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Bdc2Fc_CLF">
+    <wsdl:port name="Bdc2Fc_CLFSoap" binding="tns:Bdc2Fc_CLFSoap">
+      <soap:address location="http://172.18.0.70/FCWebService/Bdc2Fc_CLF.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Bdc2Fc_CLFSoap12" binding="tns:Bdc2Fc_CLFSoap12">
+      <soap12:address location="http://172.18.0.70/FCWebService/Bdc2Fc_CLF.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Bdc2Fc_CLFHttpGet" binding="tns:Bdc2Fc_CLFHttpGet">
+      <http:address location="http://172.18.0.70/FCWebService/Bdc2Fc_CLF.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Bdc2Fc_CLFHttpPost" binding="tns:Bdc2Fc_CLFHttpPost">
+      <http:address location="http://172.18.0.70/FCWebService/Bdc2Fc_CLF.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

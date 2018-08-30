@@ -1,0 +1,286 @@
+﻿@model Web4BDC.Models.JGCXModel.CX_Head
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="generator" content="Aspose.Words for .NET 15.1.0.0" />
+    <title>
+    </title>
+    <script language="javascript" src="~/Scripts/LodopFuncs.js"></script>
+    <script type="text/javascript">
+
+        //定义全局变量
+        var LODOP;
+        //打印
+        function toPrint() {
+            //识别各种浏览器的实现原理是根据navigator.userAgent返回值识别,如果为chrome浏览器
+            //if (navigator.userAgent.indexOf('Chrome') >= 0) {
+            //    var headstr = "<html><head></head><body>";
+            //    var footstr = "</body>";
+            //    //获得 print_div   里的所有 html 数据(把要打印的数据嵌套在 一个 div 里，获得 div)
+            //    var printData = document.getElementById("print_div").innerHTML;
+            //    //获取当前页面的html
+            //    var oldstr = document.body.innerHTML;
+            //    //把 headstr+printData+footstr 里的数据 复制给 body 的 html 数据 ，相当于重置了 整个页面的 内容
+            //    document.body.innerHTML = headstr + printData + footstr;
+            //    //使用方法为 window.print() 打印页面上局部的数据
+            //    window.print();
+            //    document.body.innerHTML = oldstr;
+            //} else {
+            if (!LODOP) {
+                //getLodop的任务是判断浏览器的类型并决定采用哪个对象实例，并检测控件是否安装、是否最新版本、并引导安装或升级
+                LODOP = getLodop();
+                
+            }
+            if (LODOP) {
+                //var headstr = "<html><head></head><body>";
+                //var footstr = "</body>";
+                //var printData = document.getElementById("print_div").innerHTML;
+                //var oldstr = document.body.innerHTML;
+                //var data = headstr + printData + footstr;
+                //LODOP.ADD_PRINT_HTM(20, 32, "92%", "94%", data);
+                //LODOP.SET_PRINT_STYLEA(0, "HOrient", 3);
+                //LODOP.SET_PRINT_STYLEA(0, "VOrient", 3);
+                CreatePrintData();
+                LODOP.PREVIEW();
+                window.close();
+            }
+
+        }
+        function CreatePrintData() {
+            var headstr = "<html><head></head><body>";
+            var footstr = "</body>";
+            var printheader = document.getElementById("Head").innerHTML;
+
+            var printfoot = document.getElementById("Foot").innerHTML;
+
+            var obj = getElementsByName("div", "printDataDiv");
+
+            if (obj.length == 1) {
+                var printData = obj[0].innerHTML;
+                LODOP.NewPage();
+                var data = headstr + printheader + printData + printfoot + footstr;
+                
+                LODOP.ADD_PRINT_HTM(20, 32, "92%", "94%", data);
+                LODOP.SET_PRINT_STYLEA(0, "HOrient", 3);
+                LODOP.SET_PRINT_STYLEA(0, "VOrient", 3);
+                LODOP.ADD_PRINT_HTM(1075, 365, 300, 100, "<font style='font-size:12px' format='0'><span tdata='pageNO'>第##页</span>/<span tdata='pageCount'>共##页</span></font>");
+                LODOP.SET_PRINT_STYLEA(0, "ItemType", 1);
+            }
+            else {
+                for (i = 0; i < obj.length; i++) {
+                    var printData = obj[i].innerHTML;
+                    LODOP.NewPage();
+                    var data = headstr + printData + footstr;
+                    if (i == 0) {
+
+                        data = headstr + printheader + printData + footstr;
+
+                    }
+                    if (i == obj.length - 1) {
+                        data = headstr + printData + printfoot + footstr;
+                    }
+                    
+                    LODOP.ADD_PRINT_HTM(20, 32, "92%", "90%", data);
+                    LODOP.SET_PRINT_STYLEA(0, "HOrient", 3);
+                    LODOP.SET_PRINT_STYLEA(0, "VOrient", 3);
+                    LODOP.ADD_PRINT_HTM(1075, 365, 300, 100, "<font style='font-size:12px' format='0'><span tdata='pageNO'>第###页</span>/<span tdata='pageCount'>共###页</span></font>");
+                    LODOP.SET_PRINT_STYLEA(0, "ItemType", 1);
+                }
+            }
+        }
+
+        var getElementsByName = function (tag, name) {
+            var returns = document.getElementsByName(name);
+            if (returns.length > 0) return returns;
+            returns = new Array();
+            var e = document.getElementsByTagName(tag);
+            for (var i = 0; i < e.length; i++) {
+                if (e[i].getAttribute("name") == name) {
+                    returns[returns.length] = e[i];
+                }
+            }
+            return returns;
+        }
+
+        //取消
+        function cancel() {
+            window.history.back();
+        }
+        window.onload = function () {
+
+            toPrint();
+
+        }
+    </script>
+
+
+</head>
+
+<body>
+    <div data-options="region:'north'" style="height:36px; border-collapse: collapse;border-bottom: 1px solid #abafb8;border-left: none;border-right: none;">
+        <table style=" font-size:14px;color:#c4c4c4;text-align: center;width: 490pt">
+            <tr>
+                <td style="height: 28px;text-align: left;">
+                    <input type="button" class="easyui-linkbutton" value="打印" id="printBtn" onclick="toPrint()" />
+                    <a id="btn_cancel" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-close'" href="javascript:window.close()">取消</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="Head">
+        <p style="margin:0pt; orphans:0; text-align:RIGHT; widows:0">
+
+            <span style="font-family:Calibri; font-size:10.5pt">
+            </span>
+            <span style="font-family:宋体; font-size:10.5pt">
+                查询编号：
+            </span>
+            <span style="font-family:Calibri; font-size:10.5pt">
+                @Model.CXBH
+            </span>
+        </p>
+        <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+            <span style="font-family:Calibri; font-size:10.5pt">
+                &#xa0;
+            </span>
+        </p>
+        <p style="margin:0pt; orphans:0; text-align:center; widows:0">
+            <span style="font-family:宋体; font-size:14pt; font-weight:bold">
+                @string.Format("{0}查询结果", @Model.TITLE)
+                </span>
+        </p>
+        <p style="margin:0pt; orphans:0; text-align:justify; text-indent:20pt; widows:0">
+            <span style="font-family:宋体; font-size:10.5pt">
+                申请人
+            </span>
+            <span style="font-family:宋体; font-size:10.5pt; text-decoration:underline">
+                @Model.SQR
+            </span>
+            <span style="font-family:宋体; font-size:10.5pt; text-decoration:underline">
+                （
+            </span>
+            <span style="font-family:宋体; font-size:10.5pt; text-decoration:underline">
+                @Model.SQRZJLX
+            </span>
+            <span style="font-family:宋体; font-size:10.5pt; text-decoration:underline">
+                ：
+            </span>
+            <span style="font-family:宋体; font-size:10.5pt; text-decoration:underline">
+                @Model.SQRZJHM
+            </span>
+            <span style="font-family:宋体; font-size:10.5pt; text-decoration:underline">
+                ）
+            </span>
+            <span style="font-family:宋体; font-size:10.5pt">
+                ，向
+            </span>
+            <span style="font-family:宋体; font-size:10.5pt">
+                徐州市不动产登记交易服务中心
+            </span>
+            <span style="font-family:宋体; font-size:10.5pt">
+                申请查询
+            </span>
+            <span style="font-family:宋体; font-size:10.5pt; text-decoration:underline">
+                不动产坐落（
+            </span>
+            <span style="font-family:宋体; font-size:10.5pt; text-decoration:underline">
+                @Model.ZL
+            </span>
+            <span style="font-family:宋体; font-size:10.5pt; text-decoration:underline">
+                ）证号（
+            </span>
+            <span style="font-family:宋体; font-size:10.5pt; text-decoration:underline">
+                @Model.BDCZH
+            </span>
+            <span style="font-family:宋体; font-size:10.5pt; text-decoration:underline">
+                ）
+            </span>
+            <span style="font-family:宋体; font-size:10.5pt">
+                的
+                <span style="font-family:宋体; font-size:10.5pt">
+                    @Model.TITLE
+                </span>
+                <span style="font-family:宋体; font-size:10.5pt">
+                    信息，
+                </span>
+                <span style="font-family:宋体; font-size:10.5pt">
+                    截至
+                </span>
+                <span style="font-family:宋体; font-size:10.5pt; text-decoration:underline">
+                    @Model.CXRQ
+                </span>
+                <span style="font-family:宋体; font-size:10.5pt">
+                    ，查询结果如下：
+                </span>
+        </p>
+        </p>
+    </div>
+    
+        @RenderBody()
+    
+        <div id="Foot" data-options="region:'north'" >
+            <p style="margin:0pt; orphans:0; widows:0">
+                <span style="font-family:Calibri; font-size:10.5pt">
+                    &#xa0;
+                </span>
+            </p>
+            <p style="margin:0pt; orphans:0; widows:0">
+                <span style="font-family:宋体; font-size:10.5pt">
+                    免责申明：
+                </span>
+            </p>
+            <span style="font-family:Calibri; font-size:10.5pt">
+                1、本次查询范围系申请人申请。
+            </span>
+            <p style="margin:0pt; orphans:0; widows:0">
+
+                <span style="font-family:Calibri; font-size:10.5pt">
+                    2、申请人对查询内容无异议。
+                </span>
+
+            </p>
+            <p style="margin:0pt; orphans:0; widows:0">
+
+                <span style="font-family:Calibri; font-size:10.5pt">
+                    3、若不动产权属情况表与不动产登记簿记载不一致，以不动产登记簿为准。
+                </span>
+
+            </p>
+            <p style="margin:0pt; orphans:0; widows:0">
+
+                <span style="font-family:宋体; font-size:10.5pt">
+                </span>
+                <span style="font-family:Calibri; font-size:10.5pt">
+                    4、本证明由不动产登记机构档案部门盖章后生效。
+                </span>
+
+            </p>
+            <p style="margin:0pt; orphans:0; text-align:right; widows:0">
+
+                <span style="font-family:Calibri; font-size:10.5pt">
+                    @DateTime.Now.Year
+                </span>
+                <span style="font-family:宋体; font-size:10.5pt">
+                    年
+                </span>
+                <span style="font-family:Calibri; font-size:10.5pt">
+                    @DateTime.Now.Month
+                </span>
+                <span style="font-family:宋体; font-size:10.5pt">
+                    月
+                </span>
+                <span style="font-family:Calibri; font-size:10.5pt">
+                    @DateTime.Now.Day
+                </span>
+                <span style="font-family:宋体; font-size:10.5pt">
+                    日
+                </span>
+            </p>
+        </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "后台管理";
+}
+
+<h2>Index</h2>
+@Html.ActionLink("数据推送", "WriteBackResult", "FCWebService");
+
+@Html.ActionLink("附件上传时间修改", "FilesUpdateControl", "BDCExtend");
+
+@Html.ActionLink("数据接口测试", "GetXZFCPlugWebService", "FCWebService");
+
+@Html.ActionLink("登记信息导出", "BdcInfoExport");
+@Html.ActionLink("登记信息导出(111)", "BdcInfoExportT"); 
+
+@Html.ActionLink("网备信息7查询", "WBInfoShow", "FCWebService");
+
+@Html.ActionLink("推送档案", "PushDA", "FCWebService");
+
+@Html.ActionLink("查询网备房屋ID", "SearchWB", "FCWebService");

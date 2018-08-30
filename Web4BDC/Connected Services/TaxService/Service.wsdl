@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="TaxWSBiz" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:import namespace="TaxWSBiz" />
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="zhuanfa_qsxx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="txm" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="uid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="zhuanfa_qsxxResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="zhuanfa_qsxxResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="zhuanfa_jtcy">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="proofcode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="zhuanfa_jtcyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="zhuanfa_jtcyResult" type="s1:CProofVo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getHouseQs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="txm" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="uid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dist" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getHouseQsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getHouseQsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getJTCY">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="proofcode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getJTCYResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getJTCYResult" type="s1:CProofVo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="csdzbah">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dzbah" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fzrq" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ly" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="csdzbahResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="csdzbahResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="CProofVo" nillable="true" type="s1:CProofVo" />
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="TaxWSBiz">
+      <s:complexType name="CProofVo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="申请编号" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="利用单位" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="经办日期" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="申请人" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="申请人证件类型" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="申请人证件号码" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="proofpersonList" type="s1:ArrayOfCProofPerson" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCProofPerson">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CProofPerson" nillable="true" type="s1:CProofPerson" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CProofPerson">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="姓名" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="证件类型" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="证件号码" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="房屋座落" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="zhuanfa_qsxxSoapIn">
+    <wsdl:part name="parameters" element="tns:zhuanfa_qsxx" />
+  </wsdl:message>
+  <wsdl:message name="zhuanfa_qsxxSoapOut">
+    <wsdl:part name="parameters" element="tns:zhuanfa_qsxxResponse" />
+  </wsdl:message>
+  <wsdl:message name="zhuanfa_jtcySoapIn">
+    <wsdl:part name="parameters" element="tns:zhuanfa_jtcy" />
+  </wsdl:message>
+  <wsdl:message name="zhuanfa_jtcySoapOut">
+    <wsdl:part name="parameters" element="tns:zhuanfa_jtcyResponse" />
+  </wsdl:message>
+  <wsdl:message name="getHouseQsSoapIn">
+    <wsdl:part name="parameters" element="tns:getHouseQs" />
+  </wsdl:message>
+  <wsdl:message name="getHouseQsSoapOut">
+    <wsdl:part name="parameters" element="tns:getHouseQsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getJTCYSoapIn">
+    <wsdl:part name="parameters" element="tns:getJTCY" />
+  </wsdl:message>
+  <wsdl:message name="getJTCYSoapOut">
+    <wsdl:part name="parameters" element="tns:getJTCYResponse" />
+  </wsdl:message>
+  <wsdl:message name="csdzbahSoapIn">
+    <wsdl:part name="parameters" element="tns:csdzbah" />
+  </wsdl:message>
+  <wsdl:message name="csdzbahSoapOut">
+    <wsdl:part name="parameters" element="tns:csdzbahResponse" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpGetIn" />
+  <wsdl:message name="HelloWorldHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="zhuanfa_qsxxHttpGetIn">
+    <wsdl:part name="txm" type="s:string" />
+    <wsdl:part name="uid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="zhuanfa_qsxxHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="zhuanfa_jtcyHttpGetIn">
+    <wsdl:part name="proofcode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="zhuanfa_jtcyHttpGetOut">
+    <wsdl:part name="Body" element="tns:CProofVo" />
+  </wsdl:message>
+  <wsdl:message name="getHouseQsHttpGetIn">
+    <wsdl:part name="txm" type="s:string" />
+    <wsdl:part name="uid" type="s:string" />
+    <wsdl:part name="dist" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getHouseQsHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getJTCYHttpGetIn">
+    <wsdl:part name="proofcode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getJTCYHttpGetOut">
+    <wsdl:part name="Body" element="tns:CProofVo" />
+  </wsdl:message>
+  <wsdl:message name="csdzbahHttpGetIn">
+    <wsdl:part name="dzbah" type="s:string" />
+    <wsdl:part name="fzrq" type="s:string" />
+    <wsdl:part name="ly" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="csdzbahHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpPostIn" />
+  <wsdl:message name="HelloWorldHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="zhuanfa_qsxxHttpPostIn">
+    <wsdl:part name="txm" type="s:string" />
+    <wsdl:part name="uid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="zhuanfa_qsxxHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="zhuanfa_jtcyHttpPostIn">
+    <wsdl:part name="proofcode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="zhuanfa_jtcyHttpPostOut">
+    <wsdl:part name="Body" element="tns:CProofVo" />
+  </wsdl:message>
+  <wsdl:message name="getHouseQsHttpPostIn">
+    <wsdl:part name="txm" type="s:string" />
+    <wsdl:part name="uid" type="s:string" />
+    <wsdl:part name="dist" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getHouseQsHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getJTCYHttpPostIn">
+    <wsdl:part name="proofcode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getJTCYHttpPostOut">
+    <wsdl:part name="Body" element="tns:CProofVo" />
+  </wsdl:message>
+  <wsdl:message name="csdzbahHttpPostIn">
+    <wsdl:part name="dzbah" type="s:string" />
+    <wsdl:part name="fzrq" type="s:string" />
+    <wsdl:part name="ly" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="csdzbahHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="zhuanfa_qsxx">
+      <wsdl:input message="tns:zhuanfa_qsxxSoapIn" />
+      <wsdl:output message="tns:zhuanfa_qsxxSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="zhuanfa_jtcy">
+      <wsdl:input message="tns:zhuanfa_jtcySoapIn" />
+      <wsdl:output message="tns:zhuanfa_jtcySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getHouseQs">
+      <wsdl:input message="tns:getHouseQsSoapIn" />
+      <wsdl:output message="tns:getHouseQsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getJTCY">
+      <wsdl:input message="tns:getJTCYSoapIn" />
+      <wsdl:output message="tns:getJTCYSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="csdzbah">
+      <wsdl:input message="tns:csdzbahSoapIn" />
+      <wsdl:output message="tns:csdzbahSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ServiceHttpGet">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldHttpGetIn" />
+      <wsdl:output message="tns:HelloWorldHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="zhuanfa_qsxx">
+      <wsdl:input message="tns:zhuanfa_qsxxHttpGetIn" />
+      <wsdl:output message="tns:zhuanfa_qsxxHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="zhuanfa_jtcy">
+      <wsdl:input message="tns:zhuanfa_jtcyHttpGetIn" />
+      <wsdl:output message="tns:zhuanfa_jtcyHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getHouseQs">
+      <wsdl:input message="tns:getHouseQsHttpGetIn" />
+      <wsdl:output message="tns:getHouseQsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getJTCY">
+      <wsdl:input message="tns:getJTCYHttpGetIn" />
+      <wsdl:output message="tns:getJTCYHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="csdzbah">
+      <wsdl:input message="tns:csdzbahHttpGetIn" />
+      <wsdl:output message="tns:csdzbahHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ServiceHttpPost">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldHttpPostIn" />
+      <wsdl:output message="tns:HelloWorldHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="zhuanfa_qsxx">
+      <wsdl:input message="tns:zhuanfa_qsxxHttpPostIn" />
+      <wsdl:output message="tns:zhuanfa_qsxxHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="zhuanfa_jtcy">
+      <wsdl:input message="tns:zhuanfa_jtcyHttpPostIn" />
+      <wsdl:output message="tns:zhuanfa_jtcyHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getHouseQs">
+      <wsdl:input message="tns:getHouseQsHttpPostIn" />
+      <wsdl:output message="tns:getHouseQsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getJTCY">
+      <wsdl:input message="tns:getJTCYHttpPostIn" />
+      <wsdl:output message="tns:getJTCYHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="csdzbah">
+      <wsdl:input message="tns:csdzbahHttpPostIn" />
+      <wsdl:output message="tns:csdzbahHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="zhuanfa_qsxx">
+      <soap:operation soapAction="http://tempuri.org/zhuanfa_qsxx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="zhuanfa_jtcy">
+      <soap:operation soapAction="http://tempuri.org/zhuanfa_jtcy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHouseQs">
+      <soap:operation soapAction="http://tempuri.org/getHouseQs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getJTCY">
+      <soap:operation soapAction="http://tempuri.org/getJTCY" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="csdzbah">
+      <soap:operation soapAction="http://tempuri.org/csdzbah" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="zhuanfa_qsxx">
+      <soap12:operation soapAction="http://tempuri.org/zhuanfa_qsxx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="zhuanfa_jtcy">
+      <soap12:operation soapAction="http://tempuri.org/zhuanfa_jtcy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHouseQs">
+      <soap12:operation soapAction="http://tempuri.org/getHouseQs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getJTCY">
+      <soap12:operation soapAction="http://tempuri.org/getJTCY" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="csdzbah">
+      <soap12:operation soapAction="http://tempuri.org/csdzbah" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceHttpGet" type="tns:ServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="zhuanfa_qsxx">
+      <http:operation location="/zhuanfa_qsxx" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="zhuanfa_jtcy">
+      <http:operation location="/zhuanfa_jtcy" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHouseQs">
+      <http:operation location="/getHouseQs" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getJTCY">
+      <http:operation location="/getJTCY" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="csdzbah">
+      <http:operation location="/csdzbah" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceHttpPost" type="tns:ServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="zhuanfa_qsxx">
+      <http:operation location="/zhuanfa_qsxx" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="zhuanfa_jtcy">
+      <http:operation location="/zhuanfa_jtcy" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHouseQs">
+      <http:operation location="/getHouseQs" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getJTCY">
+      <http:operation location="/getJTCY" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="csdzbah">
+      <http:operation location="/csdzbah" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="http://192.168.100.94:6413/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="http://192.168.100.94:6413/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceHttpGet" binding="tns:ServiceHttpGet">
+      <http:address location="http://192.168.100.94:6413/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceHttpPost" binding="tns:ServiceHttpPost">
+      <http:address location="http://192.168.100.94:6413/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
